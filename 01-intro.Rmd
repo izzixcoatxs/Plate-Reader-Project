@@ -1,21 +1,26 @@
 # Introduction {#intro}
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+**1. INTRODUCTION** 
 
-Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+The AstraZeneca microbiology network consists of 28 sites, which support both sterile and non-sterile manufacturing, packing and release activities. As well as associated Corporate Quality and Pharmaceutical Technology and Development
+resources. 
 
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
+A Cross site data integrity risk assessment was performed on manual micro reads (& references), short term mitigations include identifying good practice guidance on how to minimise data integrity risks, a longer-term strategy is to evaluate technology solutions. Across some of these sites, the “4 eye principal” has been applied. This principal is surrounding data integrity and how data, documentation and other forms of information needs to be checked by two people. AstraZeneca do not have a global position on this, but sites apply this principal at various levels - some sites use this principal across everything and others on a risk-based approach. The BioSnap and ProtoCol are two automatic plate readers which are being trialled in Macclesfield. The evaluation will assess if plate reading technology could provide a robust alternative to manual second checking of plates.
 
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
 
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
+**2. PURPOSE AND SCOPE** 
 
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+The purpose of this study is to observe how effective the BioSnap and ProtoCol are at counting colonies in comparison to manually reading plates. 
+During the time of these studies, environmental monitoring (EM) settle plates from Quality control labs will be reviewed. The results obtained during this study will not be used to assess environmental quality of the labs nor will it be used to make decisions on batch disposition.  This study is for technology evaluation only. 
+
+
+**3. AIMS AND OBJECTIVES**
+
+After the period of collecting data from the plates, the data will be reviewed. The aim is to evaluate if automated plate reading demonstrates a higher level of accuracy than manual plate reading. 
+
+
+
+**4. RESULTS AND DISCUSSION**
+
+Once the full data set is collected, this will be assessed by the data and stats experts to understand the effectiveness of both plate readers. There is no pass or fail criteria for this protocol. Accuracy of the ProtoCol and BioSnap are to be assessed, the effectiveness of both at detecting negative plates and a comparison between technician reads. 
+

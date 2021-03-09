@@ -1,3 +1,1297 @@
-# Literature
+# Experiment 1 Procedure
 
-Here is a review of existing methods.
+ 
+This arm of the project is the linearity study. In this study three organisms will be used: Staphylococcus aureus, Pseudomonas aeruginosa, Aspergillus brasiliensis at 5 different inoculum levels. This procedure is to be performed over a period of two days.  
+
+**Day 1:**
+
+*	Streak colony from culture plate onto agar slope  
+*	Incubate agar slope overnight
+
+**Day 2:**
+
+*	Add glass beads to the inoculated agar slope
+* Add 10ml saline to the inoculated slope  
+*	Invert the slope a few times 
+*	Vortex the slope for 1 minute 
+*	Dispense 0.1ml of stock solution in 9.9ml 0.9% saline = 105 
+*	Dispense 0.1ml of 105 dilution in 9.9ml of 0.9% saline = 103
+*	Dispense 2.0ml of 105 dilution in 8.0ml of 0.9% saline = 500cfu 
+*	Dispense 1.0ml of 103 dilution in 9.0ml of 0.9% saline = 102 
+*	Dispense 1.0ml of 500cfu dilution in 9.0ml of 0.9% saline = 50cfu 
+*	Dispense 1.0ml of 50cfu dilution in 9.0ml of 0.9% saline = 5cfu 
+*	Dispense 0.1ml 102 dilution in 9.9ml of 0.9% saline = 1cfu
+
+
+The dilutions outlined in bold are the ones to be used in this study. 
+
+Streak 0.1ml of selected dilutions onto 10 settle plates and 10 settle plates per dilution and incubate at 30-35°C for 5 days.   
+
+Once the incubation period is complete, the plates will be read by two technicians - without marking with a pen and by both plate readers. 
+
+```{r global_options,error=FALSE,warning=FALSE,fig.width=7,fig.height=7,echo=FALSE}
+knitr::opts_chunk$set(error=FALSE,warning=FALSE,fig.width=7,fig.height=5,echo=FALSE,message = FALSE)
+```
+
+```{r, include=FALSE}
+library(blandr)
+library(ggplot2)
+library(xlsx)
+library(dplyr)
+library(tibble)
+```
+
+```{r,include=FALSE,resuls="hide"}
+setwd("/Users/krpl818/OneDrive - AZCollaboration/Documents/Plate reader project")
+
+library(readxl)
+experiment_1 <- read_excel("Experiment tables.xlsx", 
+                                col_types = c("text", "text", "numeric", 
+                                              "text", "numeric", "numeric"))
+experiment_1<-as_tibble(experiment_1)
+attach(experiment_1)
+names(experiment_1)
+```
+
+```{r,results="hide"}
+
+Analyst1_staphaur_settle_1<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==1,experiment_1["Plate Type"]=='Settle')
+
+Analyst1_staphaur_settle_10<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==10,experiment_1["Plate Type"]=='Settle')
+
+Analyst1_staphaur_settle_50<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==50,experiment_1["Plate Type"]=='Settle')
+
+Analyst1_staphaur_settle_100<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==100,experiment_1["Plate Type"]=='Settle')
+
+Analyst1_staphaur_settle_300<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==300,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_staphaur_settle_1<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==1,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_staphaur_settle_10<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==10,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_staphaur_settle_50<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==50,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_staphaur_settle_100<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==100,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_staphaur_settle_300<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==300,experiment_1["Plate Type"]=='Settle')
+
+
+Biospot_staphaur_settle_1<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==1,experiment_1["Plate Type"]=='Settle')
+
+Biospot_staphaur_settle_10<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==10,experiment_1["Plate Type"]=='Settle')
+
+Biospot_staphaur_settle_50<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==50,experiment_1["Plate Type"]=='Settle')
+
+Biospot_staphaur_settle_100<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==100,experiment_1["Plate Type"]=='Settle')
+
+Biospot_staphaur_settle_300<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==300,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_staphaur_settle_1<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==1,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_staphaur_settle_10<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==10,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_staphaur_settle_50<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==50,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_staphaur_settle_100<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==100,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_staphaur_settle_300<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Staphylococcus aureus',experiment_1["Inoculation level"]==300,experiment_1["Plate Type"]=='Settle')
+
+as.data.frame(Analyst1_staphaur_settle_1)
+as.data.frame(Analyst1_staphaur_settle_10)
+as.data.frame(Analyst1_staphaur_settle_100)
+as.data.frame(Analyst1_staphaur_settle_50)
+as.data.frame(Analyst1_staphaur_settle_300)
+as.data.frame(Analyst2_staphaur_settle_1)
+as.data.frame(Analyst2_staphaur_settle_10)
+as.data.frame(Analyst2_staphaur_settle_100)
+as.data.frame(Analyst2_staphaur_settle_50)
+as.data.frame(Analyst2_staphaur_settle_300)
+as.data.frame(Biospot_staphaur_settle_1)
+as.data.frame(Biospot_staphaur_settle_10)
+as.data.frame(Biospot_staphaur_settle_100)
+as.data.frame(Biospot_staphaur_settle_50)
+as.data.frame(Biospot_staphaur_settle_300)
+as.data.frame(AutoCol_staphaur_settle_1)
+as.data.frame(AutoCol_staphaur_settle_10)
+as.data.frame(AutoCol_staphaur_settle_100)
+as.data.frame(AutoCol_staphaur_settle_50)
+as.data.frame(AutoCol_staphaur_settle_300)
+
+Analyst1_Asper_settle_1<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==1,experiment_1["Plate Type"]=='Settle')
+
+Analyst1_Asper_settle_10<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==10,experiment_1["Plate Type"]=='Settle')
+
+Analyst1_Asper_settle_50<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==50,experiment_1["Plate Type"]=='Settle')
+
+Analyst1_Asper_settle_100<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==100,experiment_1["Plate Type"]=='Settle')
+
+Analyst1_Asper_settle_300<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==300,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_Asper_settle_1<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==1,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_Asper_settle_10<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==10,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_Asper_settle_50<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==50,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_Asper_settle_100<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==100,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_Asper_settle_300<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==300,experiment_1["Plate Type"]=='Settle')
+
+
+Biospot_Asper_settle_1<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==1,experiment_1["Plate Type"]=='Settle')
+
+Biospot_Asper_settle_10<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==10,experiment_1["Plate Type"]=='Settle')
+
+Biospot_Asper_settle_50<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==50,experiment_1["Plate Type"]=='Settle')
+
+Biospot_Asper_settle_100<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==100,experiment_1["Plate Type"]=='Settle')
+
+Biospot_Asper_settle_300<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==300,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_Asper_settle_1<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==1,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_Asper_settle_10<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==10,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_Asper_settle_50<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==50,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_Asper_settle_100<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==100,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_Asper_settle_300<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Aspergillus brasiliensis',experiment_1["Inoculation level"]==300,experiment_1["Plate Type"]=='Settle')
+
+
+as.data.frame(Analyst1_Asper_settle_1)
+as.data.frame(Analyst1_Asper_settle_10)
+as.data.frame(Analyst1_Asper_settle_100)
+as.data.frame(Analyst1_Asper_settle_50)
+as.data.frame(Analyst1_Asper_settle_300)
+as.data.frame(Analyst2_Asper_settle_1)
+as.data.frame(Analyst2_Asper_settle_10)
+as.data.frame(Analyst2_Asper_settle_100)
+as.data.frame(Analyst2_Asper_settle_50)
+as.data.frame(Analyst2_Asper_settle_300)
+as.data.frame(Biospot_Asper_settle_1)
+as.data.frame(Biospot_Asper_settle_10)
+as.data.frame(Biospot_Asper_settle_100)
+as.data.frame(Biospot_Asper_settle_50)
+as.data.frame(Biospot_Asper_settle_300)
+as.data.frame(AutoCol_Asper_settle_1)
+as.data.frame(AutoCol_Asper_settle_10)
+as.data.frame(AutoCol_Asper_settle_100)
+as.data.frame(AutoCol_Asper_settle_50)
+as.data.frame(AutoCol_Asper_settle_300)
+
+Analyst1_Pseud_settle_1<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==1,experiment_1["Plate Type"]=='Settle')
+
+Analyst1_Pseud_settle_10<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==10,experiment_1["Plate Type"]=='Settle')
+
+Analyst1_Pseud_settle_50<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==50,experiment_1["Plate Type"]=='Settle')
+
+Analyst1_Pseud_settle_100<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==100,experiment_1["Plate Type"]=='Settle')
+
+Analyst1_Pseud_settle_300<-filter(experiment_1,experiment_1["Method"]=="First Analyst",experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==300,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_Pseud_settle_1<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==1,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_Pseud_settle_10<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==10,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_Pseud_settle_50<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==50,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_Pseud_settle_100<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==100,experiment_1["Plate Type"]=='Settle')
+
+Analyst2_Pseud_settle_300<-filter(experiment_1,experiment_1["Method"]=='Second Analyst',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==300,experiment_1["Plate Type"]=='Settle')
+
+
+Biospot_Pseud_settle_1<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==1,experiment_1["Plate Type"]=='Settle')
+
+Biospot_Pseud_settle_10<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==10,experiment_1["Plate Type"]=='Settle')
+
+Biospot_Pseud_settle_50<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==50,experiment_1["Plate Type"]=='Settle')
+
+Biospot_Pseud_settle_100<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==100,experiment_1["Plate Type"]=='Settle')
+
+Biospot_Pseud_settle_300<-filter(experiment_1,experiment_1["Method"]=='Biospot',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==300,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_Pseud_settle_1<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==1,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_Pseud_settle_10<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==10,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_Pseud_settle_50<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==50,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_Pseud_settle_100<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==100,experiment_1["Plate Type"]=='Settle')
+
+AutoCol_Pseud_settle_300<-filter(experiment_1,experiment_1["Method"]=='AutoCol',experiment_1["Organism"]=='Pseudomonas aeruginosa',experiment_1["Inoculation level"]==300,experiment_1["Plate Type"]=='Settle')
+
+
+as.data.frame(Analyst1_Pseud_settle_1)
+as.data.frame(Analyst1_Pseud_settle_10)
+as.data.frame(Analyst1_Pseud_settle_100)
+as.data.frame(Analyst1_Pseud_settle_50)
+as.data.frame(Analyst1_Pseud_settle_300)
+as.data.frame(Analyst2_Pseud_settle_1)
+as.data.frame(Analyst2_Pseud_settle_10)
+as.data.frame(Analyst2_Pseud_settle_100)
+as.data.frame(Analyst2_Pseud_settle_50)
+as.data.frame(Analyst2_Pseud_settle_300)
+as.data.frame(Biospot_Pseud_settle_1)
+as.data.frame(Biospot_Pseud_settle_10)
+as.data.frame(Biospot_Pseud_settle_100)
+as.data.frame(Biospot_Pseud_settle_50)
+as.data.frame(Biospot_Pseud_settle_300)
+as.data.frame(AutoCol_Pseud_settle_1)
+as.data.frame(AutoCol_Pseud_settle_10)
+as.data.frame(AutoCol_Pseud_settle_100)
+as.data.frame(AutoCol_Pseud_settle_50)
+as.data.frame(AutoCol_Pseud_settle_300)
+```
+
+```{r, results="hide"}
+experiment_1_settle_staph<-filter(experiment_1,experiment_1["Plate Type"]=='Settle',experiment_1["Organism"]=='Staphylococcus aureus')
+experiment_1_settle_staph<-as.data.frame(experiment_1_settle_staph)
+
+experiment_1_settle_asper<-filter(experiment_1,experiment_1["Plate Type"]=='Settle',experiment_1["Organism"]=='Aspergillus brasiliensis')
+experiment_1_settle_asper<-as.data.frame(experiment_1_settle_asper)
+
+experiment_1_settle_pseud<-filter(experiment_1,experiment_1["Plate Type"]=='Settle',experiment_1["Organism"]=='Pseudomonas aeruginosa')
+experiment_1_settle_pseud<-as.data.frame(experiment_1_settle_pseud)
+
+```
+
+```{r,results="hide"}
+
+#staph
+A1_A2blandr_1<-blandr.statistics(Analyst1_staphaur_settle_1[[5]],Analyst2_staphaur_settle_1[[5]],sig.level=0.95)
+
+A1_A2blandr_10<-blandr.statistics(Analyst1_staphaur_settle_10[[5]],Analyst2_staphaur_settle_10[[5]],sig.level=0.95)
+
+A1_A2blandr_50<-blandr.statistics(Analyst1_staphaur_settle_50[[5]],Analyst2_staphaur_settle_50[[5]],sig.level=0.95)
+
+A1_A2blandr_100<-blandr.statistics(Analyst1_staphaur_settle_100[[5]],Analyst2_staphaur_settle_100[[5]],sig.level=0.95)
+
+A1_A2blandr_300<-blandr.statistics(Analyst1_staphaur_settle_300[[5]],Analyst2_staphaur_settle_300[[5]],sig.level=0.95)
+
+A1_Biospotblandr_1<-blandr.statistics(Analyst1_staphaur_settle_1[[5]],Biospot_staphaur_settle_1[[5]],sig.level=0.95)
+
+A1_Biospotblandr_10<-blandr.statistics(Analyst1_staphaur_settle_10[[5]],Biospot_staphaur_settle_10[[5]],sig.level=0.95)
+
+A1_Biospotblandr_50<-blandr.statistics(Analyst1_staphaur_settle_50[[5]],Biospot_staphaur_settle_50[[5]],sig.level=0.95)
+
+A1_Biospotblandr_100<-blandr.statistics(Analyst1_staphaur_settle_100[[5]],Biospot_staphaur_settle_100[[5]],sig.level=0.95)
+
+A1_Biospotblandr_300<-blandr.statistics(Analyst1_staphaur_settle_300[[5]],Biospot_staphaur_settle_300[[5]],sig.level=0.95)
+
+
+A1_AutoColblandr_1<-blandr.statistics(Analyst1_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
+
+A1_AutoColblandr_10<-blandr.statistics(Analyst1_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]],sig.level=0.95)
+
+A1_AutoColblandr_100<-blandr.statistics(Analyst1_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]],sig.level=0.95)
+
+A1_AutoColblandr_300<-blandr.statistics(Analyst1_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]],sig.level=0.95)
+
+A1_AutoColblandr_1<-blandr.statistics(Analyst1_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
+
+
+A2_Biospotblandr_1<-blandr.statistics(Analyst2_staphaur_settle_1[[5]],Biospot_staphaur_settle_1[[5]],sig.level=0.95)
+
+A2_Biospotblandr_10<-blandr.statistics(Analyst2_staphaur_settle_10[[5]],Biospot_staphaur_settle_10[[5]],sig.level=0.95)
+
+A2_Biospotblandr_50<-blandr.statistics(Analyst2_staphaur_settle_50[[5]],Biospot_staphaur_settle_50[[5]],sig.level=0.95)
+
+A2_Biospotblandr_100<-blandr.statistics(Analyst2_staphaur_settle_100[[5]],Biospot_staphaur_settle_100[[5]],sig.level=0.95)
+
+A2_Biospotblandr_300<-blandr.statistics(Analyst2_staphaur_settle_300[[5]],Biospot_staphaur_settle_300[[5]],sig.level=0.95)
+
+
+A2_AutoColblandr_1<-blandr.statistics(Analyst2_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
+
+A2_AutoColblandr_10<-blandr.statistics(Analyst2_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]],sig.level=0.95)
+
+A2_AutoColblandr_50<-blandr.statistics(Analyst2_staphaur_settle_50[[5]],AutoCol_staphaur_settle_50[[5]],sig.level=0.95)
+
+A2_AutoColblandr_100<-blandr.statistics(Analyst2_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]],sig.level=0.95)
+
+A2_AutoColblandr_300<-blandr.statistics(Analyst2_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]],sig.level=0.95)
+
+
+Biospot_AutoColblandr_1<-blandr.statistics(Biospot_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
+
+Biospot_AutoColblandr_10<-blandr.statistics(Biospot_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]],sig.level=0.95)
+
+Biospot_AutoColblandr_50<-blandr.statistics(Biospot_staphaur_settle_50[[5]],AutoCol_staphaur_settle_50[[5]],sig.level=0.95)
+
+Biospot_AutoColblandr_100<-blandr.statistics(Biospot_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]],sig.level=0.95)
+
+Biospot_AutoColblandr_300<-blandr.statistics(Biospot_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]],sig.level=0.95)
+
+```
+
+## Staphylococcus aureus Settle Plates:
+
+```{r, eval=TRUE}
+ggplot(data = experiment_1_settle_staph,aes(x=experiment_1_settle_staph$Method, y=experiment_1_settle_staph$`Number of colonies`)) +
+  geom_line(aes(group=interaction(experiment_1_settle_staph$`Inoculation level`,experiment_1_settle_staph$Repeat)),color='black')+
+  geom_point(aes(x=experiment_1_settle_staph$Method, y=experiment_1_settle_staph$`Number of colonies`,color=experiment_1_settle_staph$Method))+facet_wrap(~experiment_1_settle_staph$`Inoculation level`)+
+  labs(y="Number of Colonies counted", x = "Method")+theme(legend.position = "none")
+```
+
+**1) Analyst 1 compared to Analyst 2 :**
+
+1 cfu
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_staph_1<-blandr.output.text(Analyst1_staphaur_settle_1[[5]],Analyst2_staphaur_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_1[[5]],Analyst2_staphaur_settle_1[[5]])
+blandr.plot.normality(A1_A2blandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_staph_10<-blandr.output.text(Analyst1_staphaur_settle_10[[5]],Analyst2_staphaur_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_10[[5]],Analyst2_staphaur_settle_10[[5]])
+blandr.plot.normality(A1_A2blandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_staph_50<-blandr.output.text(Analyst1_staphaur_settle_50[[5]],Analyst2_staphaur_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_50[[5]],Analyst1_staphaur_settle_50[[5]])
+blandr.plot.normality(A1_A2blandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_staph_100<-blandr.output.text(Analyst1_staphaur_settle_100[[5]],Analyst2_staphaur_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_100[[5]],Analyst2_staphaur_settle_100[[5]])
+blandr.plot.normality(A1_A2blandr_100)
+
+```
+
+300cfu 
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_staph_300<-blandr.output.text(Analyst1_staphaur_settle_300[[5]],Analyst2_staphaur_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_300[[5]],Analyst2_staphaur_settle_300[[5]])
+blandr.plot.normality(A1_A2blandr_300)
+```
+
+**2) Analyst 1 compared to Biospot :**
+
+1 cfu
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_staph_1<-blandr.output.text(Analyst1_staphaur_settle_1[[5]],Biospot_staphaur_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_1[[5]],Biospot_staphaur_settle_1[[5]])
+blandr.plot.normality(A1_Biospotblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_staph_10<-blandr.output.text(Analyst1_staphaur_settle_10[[5]],Biospot_staphaur_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_10[[5]],Biospot_staphaur_settle_10[[5]])
+blandr.plot.normality(A1_Biospotblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_staph_50<-blandr.output.text(Analyst1_staphaur_settle_50[[5]],Biospot_staphaur_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_50[[5]],Biospot_staphaur_settle_50[[5]])
+blandr.plot.normality(A1_Biospotblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_staph_100<-blandr.output.text(Analyst1_staphaur_settle_100[[5]],Biospot_staphaur_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_100[[5]],Biospot_staphaur_settle_100[[5]])
+blandr.plot.normality(A1_Biospotblandr_100)
+
+```
+ 
+300cfu 
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_staph_300<-blandr.output.text(Analyst1_staphaur_settle_300[[5]],Biospot_staphaur_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_300[[5]],Biospot_staphaur_settle_300[[5]])
+blandr.plot.normality(A1_Biospotblandr_300)
+
+```
+
+**3) Analyst 1 compared to AutoCol :**
+
+1 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_staph_1<-blandr.output.text(Analyst1_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]])
+blandr.plot.normality(A1_AutoColblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_staph_10<-blandr.output.text(Analyst1_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]])
+blandr.plot.normality(A1_AutoColblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_staph_50<-blandr.output.text(Analyst1_staphaur_settle_50[[5]],AutoCol_staphaur_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_50[[5]],Analyst1_staphaur_settle_50[[5]])
+blandr.plot.normality(A1_AutoColblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_staph_100<-blandr.output.text(Analyst1_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]])
+blandr.plot.normality(A1_AutoColblandr_100)
+
+```
+ 
+300cfu 
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_staph_300<-blandr.output.text(Analyst1_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst1_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]])
+blandr.plot.normality(A1_AutoColblandr_300)
+
+```
+
+**4) Analyst 2 compared to Biospot:**
+
+
+1 cfu
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_staph_1<-blandr.output.text(Analyst2_staphaur_settle_1[[5]],Biospot_staphaur_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst2_staphaur_settle_1[[5]],Biospot_staphaur_settle_1[[5]])
+blandr.plot.normality(A2_Biospotblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_staph_10<-blandr.output.text(Analyst2_staphaur_settle_10[[5]],Biospot_staphaur_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst2_staphaur_settle_10[[5]],Biospot_staphaur_settle_10[[5]])
+blandr.plot.normality(A2_Biospotblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_staph_50<-blandr.output.text(Analyst2_staphaur_settle_50[[5]],Biospot_staphaur_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst2_staphaur_settle_50[[5]],Biospot_staphaur_settle_50[[5]])
+blandr.plot.normality(A2_Biospotblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_staph_100<-blandr.output.text(Analyst2_staphaur_settle_100[[5]],Biospot_staphaur_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst2_staphaur_settle_100[[5]],Biospot_staphaur_settle_100[[5]])
+blandr.plot.normality(A2_Biospotblandr_100)
+
+```
+ 
+300cfu 
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_staph_300<-blandr.output.text(Analyst2_staphaur_settle_300[[5]],Biospot_staphaur_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst2_staphaur_settle_300[[5]],Biospot_staphaur_settle_300[[5]])
+blandr.plot.normality(A2_Biospotblandr_300)
+
+```
+
+**5) Analyst 2 compared to AutoCol**
+
+1 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_staph_1<-blandr.output.text(Analyst2_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst2_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]])
+blandr.plot.normality(A2_AutoColblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_staph_10<-blandr.output.text(Analyst2_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst2_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]])
+blandr.plot.normality(A2_AutoColblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_staph_50<-blandr.output.text(Analyst2_staphaur_settle_50[[5]],AutoCol_staphaur_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst2_staphaur_settle_50[[5]],Analyst1_staphaur_settle_50[[5]])
+blandr.plot.normality(A2_AutoColblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_staph_100<-blandr.output.text(Analyst2_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst2_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]])
+blandr.plot.normality(A2_AutoColblandr_100)
+
+```
+ 
+300cfu 
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_staph_300<-blandr.output.text(Analyst2_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst2_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]])
+blandr.plot.normality(A2_AutoColblandr_300)
+```
+
+**6) Biospot compared to AutoCol :**
+
+1 cfu 
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_staph_1<-blandr.output.text(Biospot_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
+blandr.draw(Biospot_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_staph_10<-blandr.output.text(Biospot_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]],sig.level=0.95)
+blandr.draw(Biospot_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_staph_50<-blandr.output.text(Biospot_staphaur_settle_50[[5]],AutoCol_staphaur_settle_50[[5]],sig.level=0.95)
+blandr.draw(Biospot_staphaur_settle_50[[5]],Analyst1_staphaur_settle_50[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_staph_100<-blandr.output.text(Biospot_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]],sig.level=0.95)
+blandr.draw(Biospot_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_100)
+
+```
+
+300cfu 
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_staph_300<-blandr.output.text(Biospot_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]],sig.level=0.95)
+blandr.draw(Biospot_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_300)
+```
+
+```{r,results="hide"}
+#Asper
+
+A1_A2blandr_1<-blandr.statistics(Analyst1_Asper_settle_1[[5]],Analyst2_Asper_settle_1[[5]],sig.level=0.95)
+
+A1_A2blandr_10<-blandr.statistics(Analyst1_Asper_settle_10[[5]],Analyst2_Asper_settle_10[[5]],sig.level=0.95)
+
+A1_A2blandr_50<-blandr.statistics(Analyst1_Asper_settle_50[[5]],Analyst2_Asper_settle_50[[5]],sig.level=0.95)
+
+A1_A2blandr_100<-blandr.statistics(Analyst1_Asper_settle_100[[5]],Analyst2_Asper_settle_100[[5]],sig.level=0.95)
+
+A1_A2blandr_300<-blandr.statistics(Analyst1_Asper_settle_300[[5]],Analyst2_Asper_settle_300[[5]],sig.level=0.95)
+
+A1_Biospotblandr_1<-blandr.statistics(Analyst1_Asper_settle_1[[5]],Biospot_Asper_settle_1[[5]],sig.level=0.95)
+
+A1_Biospotblandr_10<-blandr.statistics(Analyst1_Asper_settle_10[[5]],Biospot_Asper_settle_10[[5]],sig.level=0.95)
+
+A1_Biospotblandr_50<-blandr.statistics(Analyst1_Asper_settle_50[[5]],Biospot_Asper_settle_50[[5]],sig.level=0.95)
+
+A1_Biospotblandr_100<-blandr.statistics(Analyst1_Asper_settle_100[[5]],Biospot_Asper_settle_100[[5]],sig.level=0.95)
+
+
+
+
+A1_AutoColblandr_1<-blandr.statistics(Analyst1_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]],sig.level=0.95)
+
+A1_AutoColblandr_10<-blandr.statistics(Analyst1_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]],sig.level=0.95)
+
+A1_AutoColblandr_100<-blandr.statistics(Analyst1_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]],sig.level=0.95)
+
+A1_AutoColblandr_300<-blandr.statistics(Analyst1_Asper_settle_300[[5]],AutoCol_Asper_settle_300[[5]],sig.level=0.95)
+
+A1_AutoColblandr_1<-blandr.statistics(Analyst1_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]],sig.level=0.95)
+
+
+A2_Biospotblandr_1<-blandr.statistics(Analyst2_Asper_settle_1[[5]],Biospot_Asper_settle_1[[5]],sig.level=0.95)
+
+A2_Biospotblandr_10<-blandr.statistics(Analyst2_Asper_settle_10[[5]],Biospot_Asper_settle_10[[5]],sig.level=0.95)
+
+A2_Biospotblandr_50<-blandr.statistics(Analyst2_Asper_settle_50[[5]],Biospot_Asper_settle_50[[5]],sig.level=0.95)
+
+A2_Biospotblandr_100<-blandr.statistics(Analyst2_Asper_settle_100[[5]],Biospot_Asper_settle_100[[5]],sig.level=0.95)
+
+
+A2_AutoColblandr_1<-blandr.statistics(Analyst2_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
+
+A2_AutoColblandr_10<-blandr.statistics(Analyst2_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]],sig.level=0.95)
+
+A2_AutoColblandr_50<-blandr.statistics(Analyst2_staphaur_settle_50[[5]],AutoCol_staphaur_settle_50[[5]],sig.level=0.95)
+
+A2_AutoColblandr_100<-blandr.statistics(Analyst2_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]],sig.level=0.95)
+
+A2_AutoColblandr_300<-blandr.statistics(Analyst2_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]],sig.level=0.95)
+
+
+Biospot_AutoColblandr_1<-blandr.statistics(Biospot_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]],sig.level=0.95)
+
+Biospot_AutoColblandr_10<-blandr.statistics(Biospot_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]],sig.level=0.95)
+
+Biospot_AutoColblandr_50<-blandr.statistics(Biospot_Asper_settle_50[[5]],AutoCol_Asper_settle_50[[5]],sig.level=0.95)
+
+Biospot_AutoColblandr_100<-blandr.statistics(Biospot_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]],sig.level=0.95)
+```
+
+**1) Analyst 1 compared to Analyst 2:**
+
+1 cfu
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_asper_1<-blandr.output.text(Analyst1_Asper_settle_1[[5]],Analyst2_Asper_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_1[[5]],Analyst2_Asper_settle_1[[5]])
+blandr.plot.normality(A1_A2blandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_asper_10<-blandr.output.text(Analyst1_Asper_settle_10[[5]],Analyst2_Asper_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_10[[5]],Analyst2_Asper_settle_10[[5]])
+blandr.plot.normality(A1_A2blandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_asper_50<-blandr.output.text(Analyst1_Asper_settle_50[[5]],Analyst2_Asper_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_50[[5]],Analyst1_Asper_settle_50[[5]])
+blandr.plot.normality(A1_A2blandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_asper_100<-blandr.output.text(Analyst1_Asper_settle_100[[5]],Analyst2_Asper_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_100[[5]],Analyst2_Asper_settle_100[[5]])
+blandr.plot.normality(A1_A2blandr_100)
+
+```
+ 
+300cfu 
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_asper_300<-blandr.output.text(Analyst1_Asper_settle_300[[5]],Analyst2_Asper_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_300[[5]],Analyst2_Asper_settle_300[[5]])
+blandr.plot.normality(A1_A2blandr_300)
+```
+
+**2) Analyst 1 compared to Biospot:**
+
+1 cfu
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_asper_1<-blandr.output.text(Analyst1_Asper_settle_1[[5]],Biospot_Asper_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_1[[5]],Biospot_Asper_settle_1[[5]])
+blandr.plot.normality(A1_Biospotblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_asper_10<-blandr.output.text(Analyst1_Asper_settle_10[[5]],Biospot_Asper_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_10[[5]],Biospot_Asper_settle_10[[5]])
+blandr.plot.normality(A1_Biospotblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_asper_50<-blandr.output.text(Analyst1_Asper_settle_50[[5]],Biospot_Asper_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_50[[5]],Biospot_Asper_settle_50[[5]])
+blandr.plot.normality(A1_Biospotblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_asper_100<-blandr.output.text(Analyst1_Asper_settle_100[[5]],Biospot_Asper_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_100[[5]],Biospot_Asper_settle_100[[5]])
+blandr.plot.normality(A1_Biospotblandr_100)
+
+```
+
+300 cfu
+
+Biospot failed TNTC
+ 
+**3) Analyst 1 compared to AutoCol:**
+
+1 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_asper_1<-blandr.output.text(Analyst1_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]])
+blandr.plot.normality(A1_AutoColblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_asper_10<-blandr.output.text(Analyst1_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]])
+blandr.plot.normality(A1_AutoColblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_asper_50<-blandr.output.text(Analyst1_Asper_settle_50[[5]],AutoCol_Asper_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_50[[5]],Analyst1_Asper_settle_50[[5]])
+blandr.plot.normality(A1_AutoColblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_asper_100<-blandr.output.text(Analyst1_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]])
+blandr.plot.normality(A1_AutoColblandr_100)
+
+```
+
+300 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_asper_300<-blandr.output.text(Analyst1_Asper_settle_300[[5]],AutoCol_Asper_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Asper_settle_300[[5]],AutoCol_Asper_settle_300[[5]])
+blandr.plot.normality(A1_AutoColblandr_300)
+
+```
+ 
+**4) Analyst 2 compared to Biospot:**
+
+1 cfu
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_asper_1<-blandr.output.text(Analyst2_Asper_settle_1[[5]],Biospot_Asper_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Asper_settle_1[[5]],Biospot_Asper_settle_1[[5]])
+blandr.plot.normality(A2_Biospotblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_asper_10<-blandr.output.text(Analyst2_Asper_settle_10[[5]],Biospot_Asper_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Asper_settle_10[[5]],Biospot_Asper_settle_10[[5]])
+blandr.plot.normality(A2_Biospotblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_asper_50<-blandr.output.text(Analyst2_Asper_settle_50[[5]],Biospot_Asper_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Asper_settle_50[[5]],Biospot_Asper_settle_50[[5]])
+blandr.plot.normality(A2_Biospotblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_asper_100<-blandr.output.text(Analyst2_Asper_settle_100[[5]],Biospot_Asper_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Asper_settle_100[[5]],Biospot_Asper_settle_100[[5]])
+blandr.plot.normality(A2_Biospotblandr_100)
+
+```
+
+300 cfu
+
+Biospot results failed TNTC
+
+
+
+**5) Analyst 2 compared to AutoCol:**
+
+1 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_asper_1<-blandr.output.text(Analyst2_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]])
+blandr.plot.normality(A2_AutoColblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_asper_10<-blandr.output.text(Analyst2_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]])
+blandr.plot.normality(A2_AutoColblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_asper_50<-blandr.output.text(Analyst2_Asper_settle_50[[5]],AutoCol_Asper_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Asper_settle_50[[5]],Analyst1_Asper_settle_50[[5]])
+blandr.plot.normality(A2_AutoColblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_asper_100<-blandr.output.text(Analyst2_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]])
+blandr.plot.normality(A2_AutoColblandr_100)
+
+```
+ 
+300 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_asper_300<-blandr.output.text(Analyst2_Asper_settle_300[[5]],AutoCol_Asper_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Asper_settle_300[[5]],AutoCol_Asper_settle_300[[5]])
+blandr.plot.normality(A2_AutoColblandr_300)
+```
+
+**6) Biospot compared to AutoCol:**
+
+1 cfu
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_asper_1<-blandr.output.text(Biospot_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]],sig.level=0.95)
+blandr.draw(Biospot_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_asper_10<-blandr.output.text(Biospot_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]],sig.level=0.95)
+blandr.draw(Biospot_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_asper_50<-blandr.output.text(Biospot_Asper_settle_50[[5]],AutoCol_Asper_settle_50[[5]],sig.level=0.95)
+blandr.draw(Biospot_Asper_settle_50[[5]],Analyst1_Asper_settle_50[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_asper_100<-blandr.output.text(Biospot_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]],sig.level=0.95)
+blandr.draw(Biospot_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_100)
+
+```
+
+300 cfu
+
+Biospot failed TNTC
+
+```{r,results="hide"}
+# Pseud 
+A1_A2blandr_1<-blandr.statistics(Analyst1_Pseud_settle_1[[5]],Analyst2_Pseud_settle_1[[5]],sig.level=0.95)
+
+A1_A2blandr_10<-blandr.statistics(Analyst1_Pseud_settle_10[[5]],Analyst2_Pseud_settle_10[[5]],sig.level=0.95)
+
+A1_A2blandr_50<-blandr.statistics(Analyst1_Pseud_settle_50[[5]],Analyst2_Pseud_settle_50[[5]],sig.level=0.95)
+
+A1_A2blandr_100<-blandr.statistics(Analyst1_Pseud_settle_100[[5]],Analyst2_Pseud_settle_100[[5]],sig.level=0.95)
+
+A1_A2blandr_300<-blandr.statistics(Analyst1_Pseud_settle_300[[5]],Analyst2_Pseud_settle_300[[5]],sig.level=0.95)
+
+A1_Biospotblandr_1<-blandr.statistics(Analyst1_Pseud_settle_1[[5]],Biospot_Pseud_settle_1[[5]],sig.level=0.95)
+
+A1_Biospotblandr_10<-blandr.statistics(Analyst1_Pseud_settle_10[[5]],Biospot_Pseud_settle_10[[5]],sig.level=0.95)
+
+A1_Biospotblandr_50<-blandr.statistics(Analyst1_Pseud_settle_50[[5]],Biospot_Pseud_settle_50[[5]],sig.level=0.95)
+
+A1_Biospotblandr_100<-blandr.statistics(Analyst1_Pseud_settle_100[[5]],Biospot_Pseud_settle_100[[5]],sig.level=0.95)
+
+A1_Biospotblandr_300<-blandr.statistics(Analyst1_Pseud_settle_300[[5]],Biospot_Pseud_settle_300[[5]],sig.level=0.95)
+
+
+A1_AutoColblandr_1<-blandr.statistics(Analyst1_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]],sig.level=0.95)
+
+A1_AutoColblandr_10<-blandr.statistics(Analyst1_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]],sig.level=0.95)
+
+A1_AutoColblandr_100<-blandr.statistics(Analyst1_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]],sig.level=0.95)
+
+A1_AutoColblandr_300<-blandr.statistics(Analyst1_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]],sig.level=0.95)
+
+A1_AutoColblandr_1<-blandr.statistics(Analyst1_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]],sig.level=0.95)
+
+
+A2_Biospotblandr_1<-blandr.statistics(Analyst2_Pseud_settle_1[[5]],Biospot_Pseud_settle_1[[5]],sig.level=0.95)
+
+A2_Biospotblandr_10<-blandr.statistics(Analyst2_Pseud_settle_10[[5]],Biospot_Pseud_settle_10[[5]],sig.level=0.95)
+
+A2_Biospotblandr_50<-blandr.statistics(Analyst2_Pseud_settle_50[[5]],Biospot_Pseud_settle_50[[5]],sig.level=0.95)
+
+A2_Biospotblandr_100<-blandr.statistics(Analyst2_Pseud_settle_100[[5]],Biospot_Pseud_settle_100[[5]],sig.level=0.95)
+
+A2_Biospotblandr_300<-blandr.statistics(Analyst2_Pseud_settle_300[[5]],Biospot_Pseud_settle_300[[5]],sig.level=0.95)
+
+
+A2_AutoColblandr_1<-blandr.statistics(Analyst2_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
+
+A2_AutoColblandr_10<-blandr.statistics(Analyst2_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]],sig.level=0.95)
+
+A2_AutoColblandr_50<-blandr.statistics(Analyst2_staphaur_settle_50[[5]],AutoCol_staphaur_settle_50[[5]],sig.level=0.95)
+
+A2_AutoColblandr_100<-blandr.statistics(Analyst2_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]],sig.level=0.95)
+
+A2_AutoColblandr_300<-blandr.statistics(Analyst2_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]],sig.level=0.95)
+
+
+Biospot_AutoColblandr_1<-blandr.statistics(Biospot_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]],sig.level=0.95)
+
+Biospot_AutoColblandr_10<-blandr.statistics(Biospot_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]],sig.level=0.95)
+
+Biospot_AutoColblandr_50<-blandr.statistics(Biospot_Pseud_settle_50[[5]],AutoCol_Pseud_settle_50[[5]],sig.level=0.95)
+
+Biospot_AutoColblandr_100<-blandr.statistics(Biospot_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]],sig.level=0.95)
+
+Biospot_AutoColblandr_300<-blandr.statistics(Biospot_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]],sig.level=0.95)
+```
+## Experiment 1- Pseudomonas aeruginosa
+
+**Method comparison: Analysis of Pseudomonas aeruginosa settle Plates**
+
+**1) Analyst 1 compared to Analyst 2:**
+
+1 cfu
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_Pseud_1<-blandr.output.text(Analyst1_Pseud_settle_1[[5]],Analyst2_Pseud_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_1[[5]],Analyst2_Pseud_settle_1[[5]])
+blandr.plot.normality(A1_A2blandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_Pseud_10<-blandr.output.text(Analyst1_Pseud_settle_10[[5]],Analyst2_Pseud_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_10[[5]],Analyst2_Pseud_settle_10[[5]])
+blandr.plot.normality(A1_A2blandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_Pseud_50<-blandr.output.text(Analyst1_Pseud_settle_50[[5]],Analyst2_Pseud_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_50[[5]],Analyst1_Pseud_settle_50[[5]])
+blandr.plot.normality(A1_A2blandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_Pseud_100<-blandr.output.text(Analyst1_Pseud_settle_100[[5]],Analyst2_Pseud_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_100[[5]],Analyst2_Pseud_settle_100[[5]])
+blandr.plot.normality(A1_A2blandr_100)
+
+```
+ 
+300 cfu 
+
+```{r, eval=TRUE}
+A1_A2_sum_stats_Pseud_300<-blandr.output.text(Analyst1_Pseud_settle_300[[5]],Analyst2_Pseud_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_300[[5]],Analyst2_Pseud_settle_300[[5]])
+blandr.plot.normality(A1_A2blandr_300)
+```
+
+**2) Analyst 1 compared to Biospot:**
+
+
+1 cfu
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_Pseud_1<-blandr.output.text(Analyst1_Pseud_settle_1[[5]],Biospot_Pseud_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_1[[5]],Biospot_Pseud_settle_1[[5]])
+blandr.plot.normality(A1_Biospotblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_Pseud_10<-blandr.output.text(Analyst1_Pseud_settle_10[[5]],Biospot_Pseud_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_10[[5]],Biospot_Pseud_settle_10[[5]])
+blandr.plot.normality(A1_Biospotblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_Pseud_50<-blandr.output.text(Analyst1_Pseud_settle_50[[5]],Biospot_Pseud_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_50[[5]],Biospot_Pseud_settle_50[[5]])
+blandr.plot.normality(A1_Biospotblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_Pseud_100<-blandr.output.text(Analyst1_Pseud_settle_100[[5]],Biospot_Pseud_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_100[[5]],Biospot_Pseud_settle_100[[5]])
+blandr.plot.normality(A1_Biospotblandr_100)
+
+```
+ 
+300 cfu 
+
+```{r, eval=TRUE}
+A1_Biospot_sum_stats_Pseud_300<-blandr.output.text(Analyst1_Pseud_settle_300[[5]],Biospot_Pseud_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_300[[5]],Biospot_Pseud_settle_300[[5]])
+blandr.plot.normality(A1_Biospotblandr_300)
+
+```
+
+**3) Analyst 1 compared to AutoCol:**
+
+1 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_Pseud_1<-blandr.output.text(Analyst1_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]])
+blandr.plot.normality(A1_AutoColblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_Pseud_10<-blandr.output.text(Analyst1_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]])
+blandr.plot.normality(A1_AutoColblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_Pseud_50<-blandr.output.text(Analyst1_Pseud_settle_50[[5]],AutoCol_Pseud_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_50[[5]],Analyst1_Pseud_settle_50[[5]])
+blandr.plot.normality(A1_AutoColblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_Pseud_100<-blandr.output.text(Analyst1_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]])
+blandr.plot.normality(A1_AutoColblandr_100)
+
+```
+ 
+300 cfu 
+
+```{r, eval=TRUE}
+A1_AutoColsum_stats_Pseud_300<-blandr.output.text(Analyst1_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst1_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]])
+blandr.plot.normality(A1_AutoColblandr_300)
+
+```
+
+**4) Analyst 2 compared to Biospot:**
+
+
+1 cfu
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_Pseud_1<-blandr.output.text(Analyst2_Pseud_settle_1[[5]],Biospot_Pseud_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Pseud_settle_1[[5]],Biospot_Pseud_settle_1[[5]])
+blandr.plot.normality(A2_Biospotblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_Pseud_10<-blandr.output.text(Analyst2_Pseud_settle_10[[5]],Biospot_Pseud_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Pseud_settle_10[[5]],Biospot_Pseud_settle_10[[5]])
+blandr.plot.normality(A2_Biospotblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_Pseud_50<-blandr.output.text(Analyst2_Pseud_settle_50[[5]],Biospot_Pseud_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Pseud_settle_50[[5]],Biospot_Pseud_settle_50[[5]])
+blandr.plot.normality(A2_Biospotblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_Pseud_100<-blandr.output.text(Analyst2_Pseud_settle_100[[5]],Biospot_Pseud_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Pseud_settle_100[[5]],Biospot_Pseud_settle_100[[5]])
+blandr.plot.normality(A2_Biospotblandr_100)
+
+```
+ 
+300cfu 
+
+```{r, eval=TRUE}
+A2_Biospot_sum_stats_Pseud_300<-blandr.output.text(Analyst2_Pseud_settle_300[[5]],Biospot_Pseud_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Pseud_settle_300[[5]],Biospot_Pseud_settle_300[[5]])
+blandr.plot.normality(A2_Biospotblandr_300)
+
+```
+
+**5) Analyst 2 compared to AutoCol: **
+
+1 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_Pseud_1<-blandr.output.text(Analyst2_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]])
+blandr.plot.normality(A2_AutoColblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_Pseud_10<-blandr.output.text(Analyst2_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]])
+blandr.plot.normality(A2_AutoColblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_Pseud_50<-blandr.output.text(Analyst2_Pseud_settle_50[[5]],AutoCol_Pseud_settle_50[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Pseud_settle_50[[5]],Analyst1_Pseud_settle_50[[5]])
+blandr.plot.normality(A2_AutoColblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_Pseud_100<-blandr.output.text(Analyst2_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]])
+blandr.plot.normality(A2_AutoColblandr_100)
+
+```
+ 
+300cfu
+
+```{r, eval=TRUE}
+A2_AutoColsum_stats_Pseud_300<-blandr.output.text(Analyst2_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]],sig.level=0.95)
+blandr.draw(Analyst2_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]])
+blandr.plot.normality(A2_AutoColblandr_300)
+```
+
+**6) Biospot compared to AutoCol :**
+
+1 cfu
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_Pseud_1<-blandr.output.text(Biospot_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]],sig.level=0.95)
+blandr.draw(Biospot_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_1)
+
+```
+
+10 cfu
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_Pseud_10<-blandr.output.text(Biospot_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]],sig.level=0.95)
+blandr.draw(Biospot_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_10)
+
+```
+
+50 cfu
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_Pseud_50<-blandr.output.text(Biospot_Pseud_settle_50[[5]],AutoCol_Pseud_settle_50[[5]],sig.level=0.95)
+blandr.draw(Biospot_Pseud_settle_50[[5]],Analyst1_Pseud_settle_50[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_10)
+
+```
+
+100 cfu
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_Pseud_100<-blandr.output.text(Biospot_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]],sig.level=0.95)
+blandr.draw(Biospot_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_100)
+
+```
+ 
+300 cfu
+
+```{r, eval=TRUE}
+Biospot_AutoColsum_stats_Pseud_300<-blandr.output.text(Biospot_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]],sig.level=0.95)
+blandr.draw(Biospot_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]])
+blandr.plot.normality(Biospot_AutoColblandr_300)
+```
+
