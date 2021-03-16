@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Experiment 4 | Plate Reader Analysis</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Experiment 4 | Plate Reader Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Experiment 4 | Plate Reader Analysis" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Isabelle Coates" />
+
+
+<meta name="date" content="2021-03-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="experiment-3.html"/>
+<link rel="next" href="conclusions.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="experiment-1.html"><a href="experiment-1.html"><i class="fa fa-check"></i><b>2</b> Experiment 1</a><ul>
+<li class="chapter" data-level="2.1" data-path="experiment-1.html"><a href="experiment-1.html#procedure"><i class="fa fa-check"></i><b>2.1</b> Procedure</a></li>
+<li class="chapter" data-level="2.2" data-path="experiment-1.html"><a href="experiment-1.html#staphylococcus-aureus-settle-plates"><i class="fa fa-check"></i><b>2.2</b> Staphylococcus aureus Settle Plates:</a></li>
+<li class="chapter" data-level="2.3" data-path="experiment-1.html"><a href="experiment-1.html#aspergillus-brasiliensis-settle-plates"><i class="fa fa-check"></i><b>2.3</b> Aspergillus brasiliensis Settle plates</a></li>
+<li class="chapter" data-level="2.4" data-path="experiment-1.html"><a href="experiment-1.html#pseudomonas-aeruginosa-settle-plates"><i class="fa fa-check"></i><b>2.4</b> Pseudomonas aeruginosa Settle plates</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="experiment-2.html"><a href="experiment-2.html"><i class="fa fa-check"></i><b>3</b> Experiment 2</a><ul>
+<li class="chapter" data-level="3.1" data-path="experiment-2.html"><a href="experiment-2.html#procedure-1"><i class="fa fa-check"></i><b>3.1</b> Procedure</a></li>
+<li class="chapter" data-level="3.2" data-path="experiment-2.html"><a href="experiment-2.html#settle-plates"><i class="fa fa-check"></i><b>3.2</b> Settle Plates</a></li>
+<li class="chapter" data-level="3.3" data-path="experiment-2.html"><a href="experiment-2.html#contact-plates"><i class="fa fa-check"></i><b>3.3</b> Contact Plates</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="experiment-3.html"><a href="experiment-3.html"><i class="fa fa-check"></i><b>4</b> Experiment 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="experiment-3.html"><a href="experiment-3.html#procedure-2"><i class="fa fa-check"></i><b>4.1</b> Procedure</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="experiment-4.html"><a href="experiment-4.html"><i class="fa fa-check"></i><b>5</b> Experiment 4</a><ul>
+<li class="chapter" data-level="5.1" data-path="experiment-4.html"><a href="experiment-4.html#procedure-3"><i class="fa fa-check"></i><b>5.1</b> Procedure</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i><b>6</b> Conclusions</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Plate Reader Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="experiment-4" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Experiment 4</h1>
+<div id="procedure-3" class="section level2">
+<h2><span class="header-section-number">5.1</span> Procedure</h2>
+<p>This study will use Pseudomonas aeruginosa and another water borne isolate on R2A plates. 3 inoculum levels will be used; 10 plates per inoculum level for both species. The preparation of the plates is carried out over two days.</p>
+<p><strong>Day 1: </strong></p>
+<ul>
+<li>Streak colony from culture plate onto agar slope<br />
+</li>
+<li>Incubate agar slope overnight</li>
+</ul>
+<p><strong>Day 2: </strong></p>
+<ul>
+<li>Add glass beads to the inoculated agar slope</li>
+<li>Add 10ml saline to the inoculated slope<br />
+</li>
+<li>Invert the slope a few times</li>
+<li>Vortex the slope for 1 minute</li>
+<li>Dispense 0.1ml of stock solution in 9.9ml 0.9% saline = 105</li>
+<li>Dispense 0.1ml of 105 dilution in 9.9ml of 0.9% saline = 103</li>
+<li>Dispense 2.0ml of 105 dilution in 8.0ml of 0.9% saline = 500cfu</li>
+<li>Dispense 1.0ml of 103 dilution in 9.0ml of 0.9% saline = 102</li>
+<li>Dispense 1.0ml of 500cfu in 9.0ml WFI = 50cfu</li>
+<li>Dispense 1.0ml of 50cfu in 9.0ml of WFI = 5cfu</li>
+<li>Dispense 0.1ml of 102 in 9.9ml of WFI = 1cfu</li>
+</ul>
+<p>Using the Oasis pump system, filter the 10mL of water through the filter and attach to an R2A media capsule. This will be performed 10 times for each inoculum level.</p>
+<p>The R2A plates will be incubated at 30-35°C for 5 days.</p>
+<p>Once the incubation period is complete, the plates will be read by two technicians - without marking with a pen and by both plate readers.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="experiment-3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-summary.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

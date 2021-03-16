@@ -1,6 +1,7 @@
-# Experiment 1 Procedure
+# Experiment 1 
 
- 
+## Procedure
+
 This arm of the project is the linearity study. In this study three organisms will be used: Staphylococcus aureus, Pseudomonas aeruginosa, Aspergillus brasiliensis at 5 different inoculum levels. This procedure is to be performed over a period of two days.  
 
 **Day 1:**
@@ -269,6 +270,7 @@ A1_A2blandr_100<-blandr.statistics(Analyst1_staphaur_settle_100[[5]],Analyst2_st
 
 A1_A2blandr_300<-blandr.statistics(Analyst1_staphaur_settle_300[[5]],Analyst2_staphaur_settle_300[[5]],sig.level=0.95)
 
+
 A1_Biospotblandr_1<-blandr.statistics(Analyst1_staphaur_settle_1[[5]],Biospot_staphaur_settle_1[[5]],sig.level=0.95)
 
 A1_Biospotblandr_10<-blandr.statistics(Analyst1_staphaur_settle_10[[5]],Biospot_staphaur_settle_10[[5]],sig.level=0.95)
@@ -287,8 +289,6 @@ A1_AutoColblandr_10<-blandr.statistics(Analyst1_staphaur_settle_10[[5]],AutoCol_
 A1_AutoColblandr_100<-blandr.statistics(Analyst1_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]],sig.level=0.95)
 
 A1_AutoColblandr_300<-blandr.statistics(Analyst1_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]],sig.level=0.95)
-
-A1_AutoColblandr_1<-blandr.statistics(Analyst1_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
 
 
 A2_Biospotblandr_1<-blandr.statistics(Analyst2_staphaur_settle_1[[5]],Biospot_staphaur_settle_1[[5]],sig.level=0.95)
@@ -341,7 +341,7 @@ ggplot(data = experiment_1_settle_staph,aes(x=experiment_1_settle_staph$Method, 
 ```{r, eval=TRUE}
 A1_A2_sum_stats_staph_1<-blandr.output.text(Analyst1_staphaur_settle_1[[5]],Analyst2_staphaur_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_1[[5]],Analyst2_staphaur_settle_1[[5]])
-blandr.plot.normality(A1_A2blandr_1)
+##blandr.plot.normality(A1_A2blandr_1)
 
 ```
 
@@ -350,7 +350,7 @@ blandr.plot.normality(A1_A2blandr_1)
 ```{r, eval=TRUE}
 A1_A2_sum_stats_staph_10<-blandr.output.text(Analyst1_staphaur_settle_10[[5]],Analyst2_staphaur_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_10[[5]],Analyst2_staphaur_settle_10[[5]])
-blandr.plot.normality(A1_A2blandr_10)
+##blandr.plot.normality(A1_A2blandr_10)
 
 ```
 
@@ -358,8 +358,8 @@ blandr.plot.normality(A1_A2blandr_10)
 
 ```{r, eval=TRUE}
 A1_A2_sum_stats_staph_50<-blandr.output.text(Analyst1_staphaur_settle_50[[5]],Analyst2_staphaur_settle_50[[5]],sig.level=0.95)
-blandr.draw(Analyst1_staphaur_settle_50[[5]],Analyst1_staphaur_settle_50[[5]])
-blandr.plot.normality(A1_A2blandr_10)
+blandr.draw(Analyst1_staphaur_settle_50[[5]],Analyst2_staphaur_settle_50[[5]])
+##blandr.plot.normality(A1_A2blandr_50)
 
 ```
 
@@ -368,7 +368,7 @@ blandr.plot.normality(A1_A2blandr_10)
 ```{r, eval=TRUE}
 A1_A2_sum_stats_staph_100<-blandr.output.text(Analyst1_staphaur_settle_100[[5]],Analyst2_staphaur_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_100[[5]],Analyst2_staphaur_settle_100[[5]])
-blandr.plot.normality(A1_A2blandr_100)
+##blandr.plot.normality(A1_A2blandr_100)
 
 ```
 
@@ -377,7 +377,7 @@ blandr.plot.normality(A1_A2blandr_100)
 ```{r, eval=TRUE}
 A1_A2_sum_stats_staph_300<-blandr.output.text(Analyst1_staphaur_settle_300[[5]],Analyst2_staphaur_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_300[[5]],Analyst2_staphaur_settle_300[[5]])
-blandr.plot.normality(A1_A2blandr_300)
+#blandr.plot.normality(A1_A2blandr_300)
 ```
 
 **2) Analyst 1 compared to Biospot :**
@@ -387,7 +387,7 @@ blandr.plot.normality(A1_A2blandr_300)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_staph_1<-blandr.output.text(Analyst1_staphaur_settle_1[[5]],Biospot_staphaur_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_1[[5]],Biospot_staphaur_settle_1[[5]])
-blandr.plot.normality(A1_Biospotblandr_1)
+#blandr.plot.normality(A1_Biospotblandr_1)
 
 ```
 
@@ -396,7 +396,7 @@ blandr.plot.normality(A1_Biospotblandr_1)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_staph_10<-blandr.output.text(Analyst1_staphaur_settle_10[[5]],Biospot_staphaur_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_10[[5]],Biospot_staphaur_settle_10[[5]])
-blandr.plot.normality(A1_Biospotblandr_10)
+#blandr.plot.normality(A1_Biospotblandr_10)
 
 ```
 
@@ -405,7 +405,7 @@ blandr.plot.normality(A1_Biospotblandr_10)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_staph_50<-blandr.output.text(Analyst1_staphaur_settle_50[[5]],Biospot_staphaur_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_50[[5]],Biospot_staphaur_settle_50[[5]])
-blandr.plot.normality(A1_Biospotblandr_10)
+#blandr.plot.normality(A1_Biospotblandr_10)
 
 ```
 
@@ -414,7 +414,7 @@ blandr.plot.normality(A1_Biospotblandr_10)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_staph_100<-blandr.output.text(Analyst1_staphaur_settle_100[[5]],Biospot_staphaur_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_100[[5]],Biospot_staphaur_settle_100[[5]])
-blandr.plot.normality(A1_Biospotblandr_100)
+#blandr.plot.normality(A1_Biospotblandr_100)
 
 ```
  
@@ -422,7 +422,7 @@ blandr.plot.normality(A1_Biospotblandr_100)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_staph_300<-blandr.output.text(Analyst1_staphaur_settle_300[[5]],Biospot_staphaur_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_300[[5]],Biospot_staphaur_settle_300[[5]])
-blandr.plot.normality(A1_Biospotblandr_300)
+#blandr.plot.normality(A1_Biospotblandr_300)
 
 ```
 
@@ -433,7 +433,7 @@ blandr.plot.normality(A1_Biospotblandr_300)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_staph_1<-blandr.output.text(Analyst1_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]])
-blandr.plot.normality(A1_AutoColblandr_1)
+#blandr.plot.normality(A1_AutoColblandr_1)
 
 ```
 
@@ -442,7 +442,7 @@ blandr.plot.normality(A1_AutoColblandr_1)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_staph_10<-blandr.output.text(Analyst1_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]])
-blandr.plot.normality(A1_AutoColblandr_10)
+#blandr.plot.normality(A1_AutoColblandr_10)
 
 ```
 
@@ -451,7 +451,7 @@ blandr.plot.normality(A1_AutoColblandr_10)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_staph_50<-blandr.output.text(Analyst1_staphaur_settle_50[[5]],AutoCol_staphaur_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_50[[5]],Analyst1_staphaur_settle_50[[5]])
-blandr.plot.normality(A1_AutoColblandr_10)
+#blandr.plot.normality(A1_AutoColblandr_10)
 
 ```
 
@@ -460,7 +460,7 @@ blandr.plot.normality(A1_AutoColblandr_10)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_staph_100<-blandr.output.text(Analyst1_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]])
-blandr.plot.normality(A1_AutoColblandr_100)
+#blandr.plot.normality(A1_AutoColblandr_100)
 
 ```
  
@@ -469,7 +469,7 @@ blandr.plot.normality(A1_AutoColblandr_100)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_staph_300<-blandr.output.text(Analyst1_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst1_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]])
-blandr.plot.normality(A1_AutoColblandr_300)
+#blandr.plot.normality(A1_AutoColblandr_300)
 
 ```
 
@@ -481,7 +481,7 @@ blandr.plot.normality(A1_AutoColblandr_300)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_staph_1<-blandr.output.text(Analyst2_staphaur_settle_1[[5]],Biospot_staphaur_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst2_staphaur_settle_1[[5]],Biospot_staphaur_settle_1[[5]])
-blandr.plot.normality(A2_Biospotblandr_1)
+#blandr.plot.normality(A2_Biospotblandr_1)
 
 ```
 
@@ -490,7 +490,7 @@ blandr.plot.normality(A2_Biospotblandr_1)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_staph_10<-blandr.output.text(Analyst2_staphaur_settle_10[[5]],Biospot_staphaur_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst2_staphaur_settle_10[[5]],Biospot_staphaur_settle_10[[5]])
-blandr.plot.normality(A2_Biospotblandr_10)
+#blandr.plot.normality(A2_Biospotblandr_10)
 
 ```
 
@@ -499,7 +499,7 @@ blandr.plot.normality(A2_Biospotblandr_10)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_staph_50<-blandr.output.text(Analyst2_staphaur_settle_50[[5]],Biospot_staphaur_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst2_staphaur_settle_50[[5]],Biospot_staphaur_settle_50[[5]])
-blandr.plot.normality(A2_Biospotblandr_10)
+##blandr.plot.normality(A2_Biospotblandr_10)
 
 ```
 
@@ -508,7 +508,7 @@ blandr.plot.normality(A2_Biospotblandr_10)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_staph_100<-blandr.output.text(Analyst2_staphaur_settle_100[[5]],Biospot_staphaur_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst2_staphaur_settle_100[[5]],Biospot_staphaur_settle_100[[5]])
-blandr.plot.normality(A2_Biospotblandr_100)
+#blandr.plot.normality(A2_Biospotblandr_100)
 
 ```
  
@@ -517,7 +517,7 @@ blandr.plot.normality(A2_Biospotblandr_100)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_staph_300<-blandr.output.text(Analyst2_staphaur_settle_300[[5]],Biospot_staphaur_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst2_staphaur_settle_300[[5]],Biospot_staphaur_settle_300[[5]])
-blandr.plot.normality(A2_Biospotblandr_300)
+#blandr.plot.normality(A2_Biospotblandr_300)
 
 ```
 
@@ -528,7 +528,7 @@ blandr.plot.normality(A2_Biospotblandr_300)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_staph_1<-blandr.output.text(Analyst2_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst2_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]])
-blandr.plot.normality(A2_AutoColblandr_1)
+#blandr.plot.normality(A2_AutoColblandr_1)
 
 ```
 
@@ -537,7 +537,7 @@ blandr.plot.normality(A2_AutoColblandr_1)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_staph_10<-blandr.output.text(Analyst2_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst2_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]])
-blandr.plot.normality(A2_AutoColblandr_10)
+#blandr.plot.normality(A2_AutoColblandr_10)
 
 ```
 
@@ -546,7 +546,7 @@ blandr.plot.normality(A2_AutoColblandr_10)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_staph_50<-blandr.output.text(Analyst2_staphaur_settle_50[[5]],AutoCol_staphaur_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst2_staphaur_settle_50[[5]],Analyst1_staphaur_settle_50[[5]])
-blandr.plot.normality(A2_AutoColblandr_10)
+#blandr.plot.normality(A2_AutoColblandr_10)
 
 ```
 
@@ -555,7 +555,7 @@ blandr.plot.normality(A2_AutoColblandr_10)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_staph_100<-blandr.output.text(Analyst2_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst2_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]])
-blandr.plot.normality(A2_AutoColblandr_100)
+#blandr.plot.normality(A2_AutoColblandr_100)
 
 ```
  
@@ -564,7 +564,7 @@ blandr.plot.normality(A2_AutoColblandr_100)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_staph_300<-blandr.output.text(Analyst2_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst2_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]])
-blandr.plot.normality(A2_AutoColblandr_300)
+#blandr.plot.normality(A2_AutoColblandr_300)
 ```
 
 **6) Biospot compared to AutoCol :**
@@ -574,7 +574,7 @@ blandr.plot.normality(A2_AutoColblandr_300)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_staph_1<-blandr.output.text(Biospot_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]],sig.level=0.95)
 blandr.draw(Biospot_staphaur_settle_1[[5]],AutoCol_staphaur_settle_1[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_1)
+#blandr.plot.normality(Biospot_AutoColblandr_1)
 
 ```
 
@@ -583,7 +583,7 @@ blandr.plot.normality(Biospot_AutoColblandr_1)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_staph_10<-blandr.output.text(Biospot_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]],sig.level=0.95)
 blandr.draw(Biospot_staphaur_settle_10[[5]],AutoCol_staphaur_settle_10[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_10)
+#blandr.plot.normality(Biospot_AutoColblandr_10)
 
 ```
 
@@ -592,7 +592,7 @@ blandr.plot.normality(Biospot_AutoColblandr_10)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_staph_50<-blandr.output.text(Biospot_staphaur_settle_50[[5]],AutoCol_staphaur_settle_50[[5]],sig.level=0.95)
 blandr.draw(Biospot_staphaur_settle_50[[5]],Analyst1_staphaur_settle_50[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_10)
+#blandr.plot.normality(Biospot_AutoColblandr_10)
 
 ```
 
@@ -601,7 +601,7 @@ blandr.plot.normality(Biospot_AutoColblandr_10)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_staph_100<-blandr.output.text(Biospot_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]],sig.level=0.95)
 blandr.draw(Biospot_staphaur_settle_100[[5]],AutoCol_staphaur_settle_100[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_100)
+#blandr.plot.normality(Biospot_AutoColblandr_100)
 
 ```
 
@@ -610,7 +610,19 @@ blandr.plot.normality(Biospot_AutoColblandr_100)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_staph_300<-blandr.output.text(Biospot_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]],sig.level=0.95)
 blandr.draw(Biospot_staphaur_settle_300[[5]],AutoCol_staphaur_settle_300[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_300)
+#blandr.plot.normality(Biospot_AutoColblandr_300)
+
+```
+
+## Aspergillus brasiliensis Settle plates
+
+```{r, eval=TRUE}
+ggplot(data = experiment_1_settle_asper,aes(x=experiment_1_settle_asper$Method, y=experiment_1_settle_asper$`Number of colonies`)) +
+  geom_line(aes(group=interaction(experiment_1_settle_asper$`Inoculation level`,experiment_1_settle_asper$Repeat)),color='black')+
+  geom_point(aes(x=experiment_1_settle_asper$Method, y=experiment_1_settle_asper$`Number of colonies`,color=experiment_1_settle_asper$Method))+facet_wrap(~experiment_1_settle_asper$`Inoculation level`)+
+  labs(y="Number of Colonies counted", x = "Method")+theme(legend.position = "none")
+
+
 ```
 
 ```{r,results="hide"}
@@ -684,7 +696,7 @@ Biospot_AutoColblandr_100<-blandr.statistics(Biospot_Asper_settle_100[[5]],AutoC
 ```{r, eval=TRUE}
 A1_A2_sum_stats_asper_1<-blandr.output.text(Analyst1_Asper_settle_1[[5]],Analyst2_Asper_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_1[[5]],Analyst2_Asper_settle_1[[5]])
-blandr.plot.normality(A1_A2blandr_1)
+#blandr.plot.normality(A1_A2blandr_1)
 
 ```
 
@@ -693,7 +705,7 @@ blandr.plot.normality(A1_A2blandr_1)
 ```{r, eval=TRUE}
 A1_A2_sum_stats_asper_10<-blandr.output.text(Analyst1_Asper_settle_10[[5]],Analyst2_Asper_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_10[[5]],Analyst2_Asper_settle_10[[5]])
-blandr.plot.normality(A1_A2blandr_10)
+#blandr.plot.normality(A1_A2blandr_10)
 
 ```
 
@@ -701,8 +713,8 @@ blandr.plot.normality(A1_A2blandr_10)
 
 ```{r, eval=TRUE}
 A1_A2_sum_stats_asper_50<-blandr.output.text(Analyst1_Asper_settle_50[[5]],Analyst2_Asper_settle_50[[5]],sig.level=0.95)
-blandr.draw(Analyst1_Asper_settle_50[[5]],Analyst1_Asper_settle_50[[5]])
-blandr.plot.normality(A1_A2blandr_10)
+blandr.draw(Analyst1_Asper_settle_50[[5]],Analyst2_Asper_settle_50[[5]])
+#blandr.plot.normality(A1_A2blandr_10)
 
 ```
 
@@ -711,7 +723,7 @@ blandr.plot.normality(A1_A2blandr_10)
 ```{r, eval=TRUE}
 A1_A2_sum_stats_asper_100<-blandr.output.text(Analyst1_Asper_settle_100[[5]],Analyst2_Asper_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_100[[5]],Analyst2_Asper_settle_100[[5]])
-blandr.plot.normality(A1_A2blandr_100)
+#blandr.plot.normality(A1_A2blandr_100)
 
 ```
  
@@ -720,7 +732,7 @@ blandr.plot.normality(A1_A2blandr_100)
 ```{r, eval=TRUE}
 A1_A2_sum_stats_asper_300<-blandr.output.text(Analyst1_Asper_settle_300[[5]],Analyst2_Asper_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_300[[5]],Analyst2_Asper_settle_300[[5]])
-blandr.plot.normality(A1_A2blandr_300)
+#blandr.plot.normality(A1_A2blandr_300)
 ```
 
 **2) Analyst 1 compared to Biospot:**
@@ -730,7 +742,7 @@ blandr.plot.normality(A1_A2blandr_300)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_asper_1<-blandr.output.text(Analyst1_Asper_settle_1[[5]],Biospot_Asper_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_1[[5]],Biospot_Asper_settle_1[[5]])
-blandr.plot.normality(A1_Biospotblandr_1)
+#blandr.plot.normality(A1_Biospotblandr_1)
 
 ```
 
@@ -739,7 +751,7 @@ blandr.plot.normality(A1_Biospotblandr_1)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_asper_10<-blandr.output.text(Analyst1_Asper_settle_10[[5]],Biospot_Asper_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_10[[5]],Biospot_Asper_settle_10[[5]])
-blandr.plot.normality(A1_Biospotblandr_10)
+#blandr.plot.normality(A1_Biospotblandr_10)
 
 ```
 
@@ -748,7 +760,7 @@ blandr.plot.normality(A1_Biospotblandr_10)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_asper_50<-blandr.output.text(Analyst1_Asper_settle_50[[5]],Biospot_Asper_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_50[[5]],Biospot_Asper_settle_50[[5]])
-blandr.plot.normality(A1_Biospotblandr_10)
+#blandr.plot.normality(A1_Biospotblandr_10)
 
 ```
 
@@ -757,7 +769,7 @@ blandr.plot.normality(A1_Biospotblandr_10)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_asper_100<-blandr.output.text(Analyst1_Asper_settle_100[[5]],Biospot_Asper_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_100[[5]],Biospot_Asper_settle_100[[5]])
-blandr.plot.normality(A1_Biospotblandr_100)
+#blandr.plot.normality(A1_Biospotblandr_100)
 
 ```
 
@@ -772,7 +784,7 @@ Biospot failed TNTC
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_asper_1<-blandr.output.text(Analyst1_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]])
-blandr.plot.normality(A1_AutoColblandr_1)
+#blandr.plot.normality(A1_AutoColblandr_1)
 
 ```
 
@@ -781,7 +793,7 @@ blandr.plot.normality(A1_AutoColblandr_1)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_asper_10<-blandr.output.text(Analyst1_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]])
-blandr.plot.normality(A1_AutoColblandr_10)
+#blandr.plot.normality(A1_AutoColblandr_10)
 
 ```
 
@@ -790,7 +802,7 @@ blandr.plot.normality(A1_AutoColblandr_10)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_asper_50<-blandr.output.text(Analyst1_Asper_settle_50[[5]],AutoCol_Asper_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_50[[5]],Analyst1_Asper_settle_50[[5]])
-blandr.plot.normality(A1_AutoColblandr_10)
+#blandr.plot.normality(A1_AutoColblandr_10)
 
 ```
 
@@ -799,7 +811,7 @@ blandr.plot.normality(A1_AutoColblandr_10)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_asper_100<-blandr.output.text(Analyst1_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]])
-blandr.plot.normality(A1_AutoColblandr_100)
+#blandr.plot.normality(A1_AutoColblandr_100)
 
 ```
 
@@ -808,7 +820,7 @@ blandr.plot.normality(A1_AutoColblandr_100)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_asper_300<-blandr.output.text(Analyst1_Asper_settle_300[[5]],AutoCol_Asper_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Asper_settle_300[[5]],AutoCol_Asper_settle_300[[5]])
-blandr.plot.normality(A1_AutoColblandr_300)
+#blandr.plot.normality(A1_AutoColblandr_300)
 
 ```
  
@@ -819,7 +831,7 @@ blandr.plot.normality(A1_AutoColblandr_300)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_asper_1<-blandr.output.text(Analyst2_Asper_settle_1[[5]],Biospot_Asper_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Asper_settle_1[[5]],Biospot_Asper_settle_1[[5]])
-blandr.plot.normality(A2_Biospotblandr_1)
+#blandr.plot.normality(A2_Biospotblandr_1)
 
 ```
 
@@ -828,7 +840,7 @@ blandr.plot.normality(A2_Biospotblandr_1)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_asper_10<-blandr.output.text(Analyst2_Asper_settle_10[[5]],Biospot_Asper_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Asper_settle_10[[5]],Biospot_Asper_settle_10[[5]])
-blandr.plot.normality(A2_Biospotblandr_10)
+#blandr.plot.normality(A2_Biospotblandr_10)
 
 ```
 
@@ -837,7 +849,7 @@ blandr.plot.normality(A2_Biospotblandr_10)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_asper_50<-blandr.output.text(Analyst2_Asper_settle_50[[5]],Biospot_Asper_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Asper_settle_50[[5]],Biospot_Asper_settle_50[[5]])
-blandr.plot.normality(A2_Biospotblandr_10)
+#blandr.plot.normality(A2_Biospotblandr_10)
 
 ```
 
@@ -846,7 +858,7 @@ blandr.plot.normality(A2_Biospotblandr_10)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_asper_100<-blandr.output.text(Analyst2_Asper_settle_100[[5]],Biospot_Asper_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Asper_settle_100[[5]],Biospot_Asper_settle_100[[5]])
-blandr.plot.normality(A2_Biospotblandr_100)
+#blandr.plot.normality(A2_Biospotblandr_100)
 
 ```
 
@@ -863,7 +875,7 @@ Biospot results failed TNTC
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_asper_1<-blandr.output.text(Analyst2_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]])
-blandr.plot.normality(A2_AutoColblandr_1)
+#blandr.plot.normality(A2_AutoColblandr_1)
 
 ```
 
@@ -872,7 +884,7 @@ blandr.plot.normality(A2_AutoColblandr_1)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_asper_10<-blandr.output.text(Analyst2_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]])
-blandr.plot.normality(A2_AutoColblandr_10)
+#blandr.plot.normality(A2_AutoColblandr_10)
 
 ```
 
@@ -881,7 +893,7 @@ blandr.plot.normality(A2_AutoColblandr_10)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_asper_50<-blandr.output.text(Analyst2_Asper_settle_50[[5]],AutoCol_Asper_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Asper_settle_50[[5]],Analyst1_Asper_settle_50[[5]])
-blandr.plot.normality(A2_AutoColblandr_10)
+#blandr.plot.normality(A2_AutoColblandr_10)
 
 ```
 
@@ -890,7 +902,7 @@ blandr.plot.normality(A2_AutoColblandr_10)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_asper_100<-blandr.output.text(Analyst2_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]])
-blandr.plot.normality(A2_AutoColblandr_100)
+#blandr.plot.normality(A2_AutoColblandr_100)
 
 ```
  
@@ -899,7 +911,7 @@ blandr.plot.normality(A2_AutoColblandr_100)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_asper_300<-blandr.output.text(Analyst2_Asper_settle_300[[5]],AutoCol_Asper_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Asper_settle_300[[5]],AutoCol_Asper_settle_300[[5]])
-blandr.plot.normality(A2_AutoColblandr_300)
+#blandr.plot.normality(A2_AutoColblandr_300)
 ```
 
 **6) Biospot compared to AutoCol:**
@@ -909,7 +921,7 @@ blandr.plot.normality(A2_AutoColblandr_300)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_asper_1<-blandr.output.text(Biospot_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]],sig.level=0.95)
 blandr.draw(Biospot_Asper_settle_1[[5]],AutoCol_Asper_settle_1[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_1)
+#blandr.plot.normality(Biospot_AutoColblandr_1)
 
 ```
 
@@ -918,7 +930,7 @@ blandr.plot.normality(Biospot_AutoColblandr_1)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_asper_10<-blandr.output.text(Biospot_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]],sig.level=0.95)
 blandr.draw(Biospot_Asper_settle_10[[5]],AutoCol_Asper_settle_10[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_10)
+#blandr.plot.normality(Biospot_AutoColblandr_10)
 
 ```
 
@@ -927,7 +939,7 @@ blandr.plot.normality(Biospot_AutoColblandr_10)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_asper_50<-blandr.output.text(Biospot_Asper_settle_50[[5]],AutoCol_Asper_settle_50[[5]],sig.level=0.95)
 blandr.draw(Biospot_Asper_settle_50[[5]],Analyst1_Asper_settle_50[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_10)
+#blandr.plot.normality(Biospot_AutoColblandr_10)
 
 ```
 
@@ -936,7 +948,7 @@ blandr.plot.normality(Biospot_AutoColblandr_10)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_asper_100<-blandr.output.text(Biospot_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]],sig.level=0.95)
 blandr.draw(Biospot_Asper_settle_100[[5]],AutoCol_Asper_settle_100[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_100)
+#blandr.plot.normality(Biospot_AutoColblandr_100)
 
 ```
 
@@ -1010,9 +1022,16 @@ Biospot_AutoColblandr_100<-blandr.statistics(Biospot_Pseud_settle_100[[5]],AutoC
 
 Biospot_AutoColblandr_300<-blandr.statistics(Biospot_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]],sig.level=0.95)
 ```
-## Experiment 1- Pseudomonas aeruginosa
+## Pseudomonas aeruginosa Settle plates
 
-**Method comparison: Analysis of Pseudomonas aeruginosa settle Plates**
+```{r, eval=TRUE}
+ggplot(data = experiment_1_settle_pseud,aes(x=experiment_1_settle_pseud$Method, y=experiment_1_settle_pseud$`Number of colonies`)) +
+  geom_line(aes(group=interaction(experiment_1_settle_pseud$`Inoculation level`,experiment_1_settle_pseud$Repeat)),color='black')+
+  geom_point(aes(x=experiment_1_settle_pseud$Method, y=experiment_1_settle_pseud$`Number of colonies`,color=experiment_1_settle_pseud$Method))+facet_wrap(~experiment_1_settle_pseud$`Inoculation level`)+
+  labs(y="Number of Colonies counted", x = "Method")+theme(legend.position = "none")
+
+
+```
 
 **1) Analyst 1 compared to Analyst 2:**
 
@@ -1021,7 +1040,7 @@ Biospot_AutoColblandr_300<-blandr.statistics(Biospot_Pseud_settle_300[[5]],AutoC
 ```{r, eval=TRUE}
 A1_A2_sum_stats_Pseud_1<-blandr.output.text(Analyst1_Pseud_settle_1[[5]],Analyst2_Pseud_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_1[[5]],Analyst2_Pseud_settle_1[[5]])
-blandr.plot.normality(A1_A2blandr_1)
+#blandr.plot.normality(A1_A2blandr_1)
 
 ```
 
@@ -1030,7 +1049,7 @@ blandr.plot.normality(A1_A2blandr_1)
 ```{r, eval=TRUE}
 A1_A2_sum_stats_Pseud_10<-blandr.output.text(Analyst1_Pseud_settle_10[[5]],Analyst2_Pseud_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_10[[5]],Analyst2_Pseud_settle_10[[5]])
-blandr.plot.normality(A1_A2blandr_10)
+#blandr.plot.normality(A1_A2blandr_10)
 
 ```
 
@@ -1039,7 +1058,7 @@ blandr.plot.normality(A1_A2blandr_10)
 ```{r, eval=TRUE}
 A1_A2_sum_stats_Pseud_50<-blandr.output.text(Analyst1_Pseud_settle_50[[5]],Analyst2_Pseud_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_50[[5]],Analyst1_Pseud_settle_50[[5]])
-blandr.plot.normality(A1_A2blandr_10)
+#blandr.plot.normality(A1_A2blandr_10)
 
 ```
 
@@ -1048,7 +1067,7 @@ blandr.plot.normality(A1_A2blandr_10)
 ```{r, eval=TRUE}
 A1_A2_sum_stats_Pseud_100<-blandr.output.text(Analyst1_Pseud_settle_100[[5]],Analyst2_Pseud_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_100[[5]],Analyst2_Pseud_settle_100[[5]])
-blandr.plot.normality(A1_A2blandr_100)
+#blandr.plot.normality(A1_A2blandr_100)
 
 ```
  
@@ -1057,7 +1076,7 @@ blandr.plot.normality(A1_A2blandr_100)
 ```{r, eval=TRUE}
 A1_A2_sum_stats_Pseud_300<-blandr.output.text(Analyst1_Pseud_settle_300[[5]],Analyst2_Pseud_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_300[[5]],Analyst2_Pseud_settle_300[[5]])
-blandr.plot.normality(A1_A2blandr_300)
+#blandr.plot.normality(A1_A2blandr_300)
 ```
 
 **2) Analyst 1 compared to Biospot:**
@@ -1068,7 +1087,7 @@ blandr.plot.normality(A1_A2blandr_300)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_Pseud_1<-blandr.output.text(Analyst1_Pseud_settle_1[[5]],Biospot_Pseud_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_1[[5]],Biospot_Pseud_settle_1[[5]])
-blandr.plot.normality(A1_Biospotblandr_1)
+#blandr.plot.normality(A1_Biospotblandr_1)
 
 ```
 
@@ -1077,7 +1096,7 @@ blandr.plot.normality(A1_Biospotblandr_1)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_Pseud_10<-blandr.output.text(Analyst1_Pseud_settle_10[[5]],Biospot_Pseud_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_10[[5]],Biospot_Pseud_settle_10[[5]])
-blandr.plot.normality(A1_Biospotblandr_10)
+#blandr.plot.normality(A1_Biospotblandr_10)
 
 ```
 
@@ -1086,7 +1105,7 @@ blandr.plot.normality(A1_Biospotblandr_10)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_Pseud_50<-blandr.output.text(Analyst1_Pseud_settle_50[[5]],Biospot_Pseud_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_50[[5]],Biospot_Pseud_settle_50[[5]])
-blandr.plot.normality(A1_Biospotblandr_10)
+#blandr.plot.normality(A1_Biospotblandr_10)
 
 ```
 
@@ -1095,7 +1114,7 @@ blandr.plot.normality(A1_Biospotblandr_10)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_Pseud_100<-blandr.output.text(Analyst1_Pseud_settle_100[[5]],Biospot_Pseud_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_100[[5]],Biospot_Pseud_settle_100[[5]])
-blandr.plot.normality(A1_Biospotblandr_100)
+#blandr.plot.normality(A1_Biospotblandr_100)
 
 ```
  
@@ -1104,7 +1123,7 @@ blandr.plot.normality(A1_Biospotblandr_100)
 ```{r, eval=TRUE}
 A1_Biospot_sum_stats_Pseud_300<-blandr.output.text(Analyst1_Pseud_settle_300[[5]],Biospot_Pseud_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_300[[5]],Biospot_Pseud_settle_300[[5]])
-blandr.plot.normality(A1_Biospotblandr_300)
+#blandr.plot.normality(A1_Biospotblandr_300)
 
 ```
 
@@ -1115,7 +1134,7 @@ blandr.plot.normality(A1_Biospotblandr_300)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_Pseud_1<-blandr.output.text(Analyst1_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]])
-blandr.plot.normality(A1_AutoColblandr_1)
+#blandr.plot.normality(A1_AutoColblandr_1)
 
 ```
 
@@ -1124,7 +1143,7 @@ blandr.plot.normality(A1_AutoColblandr_1)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_Pseud_10<-blandr.output.text(Analyst1_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]])
-blandr.plot.normality(A1_AutoColblandr_10)
+#blandr.plot.normality(A1_AutoColblandr_10)
 
 ```
 
@@ -1133,7 +1152,7 @@ blandr.plot.normality(A1_AutoColblandr_10)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_Pseud_50<-blandr.output.text(Analyst1_Pseud_settle_50[[5]],AutoCol_Pseud_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_50[[5]],Analyst1_Pseud_settle_50[[5]])
-blandr.plot.normality(A1_AutoColblandr_10)
+#blandr.plot.normality(A1_AutoColblandr_10)
 
 ```
 
@@ -1142,7 +1161,7 @@ blandr.plot.normality(A1_AutoColblandr_10)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_Pseud_100<-blandr.output.text(Analyst1_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]])
-blandr.plot.normality(A1_AutoColblandr_100)
+#blandr.plot.normality(A1_AutoColblandr_100)
 
 ```
  
@@ -1151,7 +1170,7 @@ blandr.plot.normality(A1_AutoColblandr_100)
 ```{r, eval=TRUE}
 A1_AutoColsum_stats_Pseud_300<-blandr.output.text(Analyst1_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst1_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]])
-blandr.plot.normality(A1_AutoColblandr_300)
+#blandr.plot.normality(A1_AutoColblandr_300)
 
 ```
 
@@ -1163,7 +1182,7 @@ blandr.plot.normality(A1_AutoColblandr_300)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_Pseud_1<-blandr.output.text(Analyst2_Pseud_settle_1[[5]],Biospot_Pseud_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Pseud_settle_1[[5]],Biospot_Pseud_settle_1[[5]])
-blandr.plot.normality(A2_Biospotblandr_1)
+#blandr.plot.normality(A2_Biospotblandr_1)
 
 ```
 
@@ -1172,7 +1191,7 @@ blandr.plot.normality(A2_Biospotblandr_1)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_Pseud_10<-blandr.output.text(Analyst2_Pseud_settle_10[[5]],Biospot_Pseud_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Pseud_settle_10[[5]],Biospot_Pseud_settle_10[[5]])
-blandr.plot.normality(A2_Biospotblandr_10)
+#blandr.plot.normality(A2_Biospotblandr_10)
 
 ```
 
@@ -1181,7 +1200,7 @@ blandr.plot.normality(A2_Biospotblandr_10)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_Pseud_50<-blandr.output.text(Analyst2_Pseud_settle_50[[5]],Biospot_Pseud_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Pseud_settle_50[[5]],Biospot_Pseud_settle_50[[5]])
-blandr.plot.normality(A2_Biospotblandr_10)
+#blandr.plot.normality(A2_Biospotblandr_10)
 
 ```
 
@@ -1190,7 +1209,7 @@ blandr.plot.normality(A2_Biospotblandr_10)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_Pseud_100<-blandr.output.text(Analyst2_Pseud_settle_100[[5]],Biospot_Pseud_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Pseud_settle_100[[5]],Biospot_Pseud_settle_100[[5]])
-blandr.plot.normality(A2_Biospotblandr_100)
+#blandr.plot.normality(A2_Biospotblandr_100)
 
 ```
  
@@ -1199,7 +1218,7 @@ blandr.plot.normality(A2_Biospotblandr_100)
 ```{r, eval=TRUE}
 A2_Biospot_sum_stats_Pseud_300<-blandr.output.text(Analyst2_Pseud_settle_300[[5]],Biospot_Pseud_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Pseud_settle_300[[5]],Biospot_Pseud_settle_300[[5]])
-blandr.plot.normality(A2_Biospotblandr_300)
+#blandr.plot.normality(A2_Biospotblandr_300)
 
 ```
 
@@ -1210,7 +1229,7 @@ blandr.plot.normality(A2_Biospotblandr_300)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_Pseud_1<-blandr.output.text(Analyst2_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]])
-blandr.plot.normality(A2_AutoColblandr_1)
+#blandr.plot.normality(A2_AutoColblandr_1)
 
 ```
 
@@ -1219,7 +1238,7 @@ blandr.plot.normality(A2_AutoColblandr_1)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_Pseud_10<-blandr.output.text(Analyst2_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]])
-blandr.plot.normality(A2_AutoColblandr_10)
+#blandr.plot.normality(A2_AutoColblandr_10)
 
 ```
 
@@ -1228,7 +1247,7 @@ blandr.plot.normality(A2_AutoColblandr_10)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_Pseud_50<-blandr.output.text(Analyst2_Pseud_settle_50[[5]],AutoCol_Pseud_settle_50[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Pseud_settle_50[[5]],Analyst1_Pseud_settle_50[[5]])
-blandr.plot.normality(A2_AutoColblandr_10)
+#blandr.plot.normality(A2_AutoColblandr_10)
 
 ```
 
@@ -1237,7 +1256,7 @@ blandr.plot.normality(A2_AutoColblandr_10)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_Pseud_100<-blandr.output.text(Analyst2_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]])
-blandr.plot.normality(A2_AutoColblandr_100)
+#blandr.plot.normality(A2_AutoColblandr_100)
 
 ```
  
@@ -1246,7 +1265,7 @@ blandr.plot.normality(A2_AutoColblandr_100)
 ```{r, eval=TRUE}
 A2_AutoColsum_stats_Pseud_300<-blandr.output.text(Analyst2_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]],sig.level=0.95)
 blandr.draw(Analyst2_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]])
-blandr.plot.normality(A2_AutoColblandr_300)
+#blandr.plot.normality(A2_AutoColblandr_300)
 ```
 
 **6) Biospot compared to AutoCol :**
@@ -1256,7 +1275,7 @@ blandr.plot.normality(A2_AutoColblandr_300)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_Pseud_1<-blandr.output.text(Biospot_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]],sig.level=0.95)
 blandr.draw(Biospot_Pseud_settle_1[[5]],AutoCol_Pseud_settle_1[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_1)
+#blandr.plot.normality(Biospot_AutoColblandr_1)
 
 ```
 
@@ -1265,7 +1284,7 @@ blandr.plot.normality(Biospot_AutoColblandr_1)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_Pseud_10<-blandr.output.text(Biospot_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]],sig.level=0.95)
 blandr.draw(Biospot_Pseud_settle_10[[5]],AutoCol_Pseud_settle_10[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_10)
+#blandr.plot.normality(Biospot_AutoColblandr_10)
 
 ```
 
@@ -1274,7 +1293,7 @@ blandr.plot.normality(Biospot_AutoColblandr_10)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_Pseud_50<-blandr.output.text(Biospot_Pseud_settle_50[[5]],AutoCol_Pseud_settle_50[[5]],sig.level=0.95)
 blandr.draw(Biospot_Pseud_settle_50[[5]],Analyst1_Pseud_settle_50[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_10)
+#blandr.plot.normality(Biospot_AutoColblandr_10)
 
 ```
 
@@ -1283,7 +1302,7 @@ blandr.plot.normality(Biospot_AutoColblandr_10)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_Pseud_100<-blandr.output.text(Biospot_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]],sig.level=0.95)
 blandr.draw(Biospot_Pseud_settle_100[[5]],AutoCol_Pseud_settle_100[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_100)
+#blandr.plot.normality(Biospot_AutoColblandr_100)
 
 ```
  
@@ -1292,6 +1311,6 @@ blandr.plot.normality(Biospot_AutoColblandr_100)
 ```{r, eval=TRUE}
 Biospot_AutoColsum_stats_Pseud_300<-blandr.output.text(Biospot_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]],sig.level=0.95)
 blandr.draw(Biospot_Pseud_settle_300[[5]],AutoCol_Pseud_settle_300[[5]])
-blandr.plot.normality(Biospot_AutoColblandr_300)
+#blandr.plot.normality(Biospot_AutoColblandr_300)
 ```
 

@@ -1,3 +1,316 @@
-# Methods
+# Experiment 2
 
-We describe our methods in this chapter.
+## Procedure
+
+This arm of the study involves setting down 50 contact plates and 50 settle plates in different lab locations. Performed on three days giving a total of 300 plates. This study will give a representative set of EM plates containing environmental isolates. 
+
+The contact plates and settle plates will be incubated at 30-35°C for 5 days. 
+
+Once the incubation period is complete, the plates will be read by two technicians - without marking with a pen and by both plate readers. 
+
+
+```{r, include=FALSE}
+library(blandr)
+library(tidyverse)
+library(xlsx)
+```
+
+
+```{r,include=FALSE,resuls="hide"}
+setwd("/Users/krpl818/OneDrive - AZCollaboration/Documents/Plate reader project")
+
+library(readxl)
+experiment_2 <- read_excel("Experiment tables.xlsx", sheet=2,
+                                col_types = c("text", "text", "text","numeric","numeric"))
+experiment_2<-as_tibble(experiment_2)
+attach(experiment_2)
+names(experiment_2)
+```
+
+```{r,results="hide"}
+
+Analyst1_day1_settle_1<-filter(experiment_2, experiment_2["Method"]=="First Analyst",experiment_2["Day"]=="Day 1'",experiment_2["Plate Type"]=='Settle')
+
+Analyst1_day2_settle_1<-filter(experiment_2, experiment_2["Method"]=="First Analyst",experiment_2["Day"]=="Day 2'",experiment_2["Plate Type"]=='Settle')
+
+Analyst1_day3_settle_1<-filter(experiment_2, experiment_2["Method"]=="First Analyst",experiment_2["Day"]=="Day 3'",experiment_2["Plate Type"]=='Settle')
+
+Analyst2_day1_settle_1<-filter(experiment_2, experiment_2["Method"]=="Second Analyst",experiment_2["Day"]=="Day 1'",experiment_2["Plate Type"]=='Settle')
+
+Analyst2_day2_settle_1<-filter(experiment_2, experiment_2["Method"]=="Second Analyst",experiment_2["Day"]=="Day 2'",experiment_2["Plate Type"]=='Settle')
+
+Analyst2_day3_settle_1<-filter(experiment_2, experiment_2["Method"]=="Second Analyst",experiment_2["Day"]=="Day 3'",experiment_2["Plate Type"]=='Settle')
+
+Biospot_day1_settle_1<-filter(experiment_2, experiment_2["Method"]=="Biospot",experiment_2["Day"]=="Day 1'",experiment_2["Plate Type"]=='Settle')
+
+Biospot_day2_settle_1<-filter(experiment_2, experiment_2["Method"]=="Biospot",experiment_2["Day"]=="Day 2'",experiment_2["Plate Type"]=='Settle')
+
+Biospot_day3_settle_1<-filter(experiment_2, experiment_2["Method"]=="Biospot",experiment_2["Day"]=="Day 3'",experiment_2["Plate Type"]=='Settle')
+
+Analyst1_day1_contact_1<-filter(experiment_2, experiment_2["Method"]=="First Analyst",experiment_2["Day"]=="Day 1'",experiment_2["Plate Type"]=='Contact')
+
+Analyst1_day2_contact_1<-filter(experiment_2, experiment_2["Method"]=="First Analyst",experiment_2["Day"]=="Day 2'",experiment_2["Plate Type"]=='Contact')
+
+Analyst1_day3_contact_1<-filter(experiment_2, experiment_2["Method"]=="First Analyst",experiment_2["Day"]=="Day 3'",experiment_2["Plate Type"]=='Contact')
+
+Analyst2_day1_contact_1<-filter(experiment_2, experiment_2["Method"]=="Second Analyst",experiment_2["Day"]=="Day 1'",experiment_2["Plate Type"]=='Contact')
+
+Analyst2_day2_contact_1<-filter(experiment_2, experiment_2["Method"]=="Second Analyst",experiment_2["Day"]=="Day 2'",experiment_2["Plate Type"]=='Contact')
+
+Analyst2_day3_contact_1<-filter(experiment_2, experiment_2["Method"]=="Second Analyst",experiment_2["Day"]=="Day 3'",experiment_2["Plate Type"]=='Contact')
+
+Biospot_day1_contact_1<-filter(experiment_2, experiment_2["Method"]=="Biospot",experiment_2["Day"]=="Day 1'",experiment_2["Plate Type"]=='Contact')
+
+Biospot_day2_contact_1<-filter(experiment_2, experiment_2["Method"]=="Biospot",experiment_2["Day"]=="Day 2'",experiment_2["Plate Type"]=='Contact')
+
+Biospot_day3_contact_1<-filter(experiment_2, experiment_2["Method"]=="Biospot",experiment_2["Day"]=="Day 3'",experiment_2["Plate Type"]=='Contact')
+
+```
+
+```{r, results="hide"}
+experiment_2_settle<-filter(experiment_2,experiment_2["Plate Type"]=='Settle')
+
+experiment_2_settle<-as.data.frame(experiment_2_settle)
+
+experiment_2_contact<-filter(experiment_2,experiment_2["Plate Type"]=='Contact')
+
+experiment_2_contact<-as.data.frame(experiment_2_contact)
+```
+
+## Settle Plates
+
+```{r, eval=TRUE}
+ggplot(data = experiment_2_settle,aes(x=experiment_2_settle$Method, y=experiment_2_settle$`Number of colonies`))+
+  geom_point(aes(x=experiment_2_settle$Method, y=experiment_2_settle$`Number of colonies`,color=experiment_2_settle$Method))+facet_wrap(~experiment_2_settle$Day)+
+  geom_line(aes(group=interaction(experiment_2_settle$Day,experiment_2_settle$Repeat)),color='black')+
+  labs(y="Number of Colonies counted", x = "Method")+theme(legend.position = "none")
+```
+
+
+
+```{r,results="hide"}
+#settle
+
+Analyst1_Analyst2_settle_1<-blandr.statistics(Analyst1_day1_settle_1[[4]],Analyst2_day1_settle_1[[4]],sig.level=0.95)
+
+Analyst1_Analyst2_settle_2<-blandr.statistics(Analyst1_day2_settle_1[[4]],Analyst2_day2_settle_1[[4]],sig.level=0.95)
+
+Analyst1_Analyst2_settle_3<-blandr.statistics(Analyst1_day3_settle_1[[4]],Analyst2_day3_settle_1[[4]],sig.level=0.95)
+
+Analyst1_Biospot_settle_1<-blandr.statistics(Analyst1_day1_settle_1[[4]],Biospot_day1_settle_1[[4]],sig.level=0.95)
+
+Analyst1_Biospot_settle_2<-blandr.statistics(Analyst1_day2_settle_1[[4]],Biospot_day2_settle_1[[4]],sig.level=0.95)
+
+Analyst1_Biospot_settle_3<-blandr.statistics(Analyst1_day3_settle_1[[4]],Biospot_day3_settle_1[[4]],sig.level=0.95)
+
+Analyst2_Biospot_settle_1<-blandr.statistics(Analyst2_day1_settle_1[[4]],Biospot_day1_settle_1[[4]],sig.level=0.95)
+
+Analyst2_Biospot_settle_2<-blandr.statistics(Analyst2_day2_settle_1[[4]],Biospot_day2_settle_1[[4]],sig.level=0.95)
+
+Analyst2_Biospot_settle_3<-blandr.statistics(Analyst2_day3_settle_1[[4]],Biospot_day3_settle_1[[4]],sig.level=0.95)
+
+#contact
+
+Analyst1_Analyst2_contact_1<-blandr.statistics(Analyst1_day1_contact_1[[4]],Analyst2_day1_contact_1[[4]],sig.level=0.95)
+
+Analyst1_Analyst2_contact_2<-blandr.statistics(Analyst1_day2_contact_1[[4]],Analyst2_day2_contact_1[[4]],sig.level=0.95)
+
+Analyst1_Analyst2_contact_3<-blandr.statistics(Analyst1_day3_contact_1[[4]],Analyst2_day3_contact_1[[4]],sig.level=0.95)
+
+Analyst1_Biospot_contact_1<-blandr.statistics(Analyst1_day1_contact_1[[4]],Biospot_day1_contact_1[[4]],sig.level=0.95)
+
+Analyst1_Biospot_contact_2<-blandr.statistics(Analyst1_day2_contact_1[[4]],Biospot_day2_contact_1[[4]],sig.level=0.95)
+
+Analyst1_Biospot_contact_3<-blandr.statistics(Analyst1_day3_contact_1[[4]],Biospot_day3_contact_1[[4]],sig.level=0.95)
+
+Analyst2_Biospot_contact_1<-blandr.statistics(Analyst2_day1_contact_1[[4]],Biospot_day1_contact_1[[4]],sig.level=0.95)
+
+Analyst2_Biospot_contact_2<-blandr.statistics(Analyst2_day2_contact_1[[4]],Biospot_day2_contact_1[[4]],sig.level=0.95)
+
+Analyst2_Biospot_contact_3<-blandr.statistics(Analyst2_day3_contact_1[[4]],Biospot_day3_contact_1[[4]],sig.level=0.95)
+
+```
+
+
+**Analyst 1 vs Analyst 2**
+
+Day 1
+
+```{r, eval=TRUE}
+Analyst1_Analyst2_settle1_stats<-blandr.output.text(Analyst1_day1_settle_1[[4]],Analyst2_day1_settle_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day1_settle_1[[4]],Analyst2_day1_settle_1[[4]])
+blandr.plot.normality(Analyst1_Analyst2_settle_1)
+
+```
+
+Day 2
+
+```{r, eval=TRUE}
+Analyst1_Analyst2_settle2_stats<-blandr.output.text(Analyst1_day2_settle_1[[4]],Analyst2_day2_settle_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day2_settle_1[[4]],Analyst2_day2_settle_1[[4]])
+blandr.plot.normality(Analyst1_Analyst2_settle_2)
+
+```
+
+Day 3
+
+```{r, eval=TRUE}
+Analyst1_Analyst2_settle3_stats<-blandr.output.text(Analyst1_day3_settle_1[[4]],Analyst2_day3_settle_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day3_settle_1[[4]],Analyst2_day3_settle_1[[4]])
+blandr.plot.normality(Analyst1_Analyst2_settle_3)
+
+```
+
+**Analyst 1 vs Biospot**
+
+Day 1
+
+```{r, eval=TRUE}
+Analyst1_Biospot_settle1_stats<-blandr.output.text(Analyst1_day1_settle_1[[4]],Biospot_day1_settle_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day1_settle_1[[4]],Biospot_day1_settle_1[[4]])
+blandr.plot.normality(Analyst1_Biospot_settle_1)
+
+```
+
+Day 2
+
+```{r, eval=TRUE}
+Analyst1_Biospot_settle2_stats<-blandr.output.text(Analyst1_day2_settle_1[[4]],Biospot_day2_settle_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day2_settle_1[[4]],Biospot_day2_settle_1[[4]])
+blandr.plot.normality(Analyst1_Biospot_settle_2)
+
+```
+
+Day 3
+
+```{r, eval=TRUE}
+Analyst1_Biospot_settle3_stats<-blandr.output.text(Analyst1_day3_settle_1[[4]],Biospot_day3_settle_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day3_settle_1[[4]],Biospot_day3_settle_1[[4]])
+blandr.plot.normality(Analyst1_Biospot_settle_3)
+
+```
+
+**Analyst 2 vs Biospot**
+
+Day 1
+
+```{r, eval=TRUE}
+Analyst2_Biospot_settle1_stats<-blandr.output.text(Analyst2_day1_contact_1[[4]],Biospot_day1_contact_1[[4]],sig.level=0.95)
+blandr.draw(Analyst2_day1_contact_1[[4]],Biospot_day1_contact_1[[4]])
+blandr.plot.normality(Analyst2_Biospot_contact_1)
+
+```
+
+Day 2
+
+```{r, eval=TRUE}
+Analyst2_Biospot_settle2_stats<-blandr.output.text(Analyst2_day2_settle_1[[4]],Biospot_day2_settle_1[[4]],sig.level=0.95)
+blandr.draw(Analyst2_day2_settle_1[[4]],Biospot_day2_settle_1[[4]])
+blandr.plot.normality(Analyst2_Biospot_settle_2)
+
+```
+
+Day 3
+
+```{r, eval=TRUE}
+Analyst2_Biospot_settle3_stats<-blandr.output.text(Analyst2_day3_settle_1[[4]],Biospot_day3_settle_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day2_settle_1[[4]],Biospot_day3_settle_1[[4]])
+blandr.plot.normality(Analyst2_Biospot_settle_3)
+
+```
+
+## Contact Plates 
+
+```{r, eval=TRUE}
+ggplot(data = experiment_2_contact,aes(x=experiment_2_contact$Method, y=experiment_2_contact$`Number of colonies`))+
+  geom_point(aes(x=experiment_2_contact$Method, y=experiment_2_contact$`Number of colonies`,color=experiment_2_contact$Method))+facet_wrap(~experiment_2_contact$Day)+
+  geom_line(aes(group=interaction(experiment_2_contact$Day,experiment_2_contact$Repeat)),color='black')+
+  labs(y="Number of Colonies counted", x = "Method")+theme(legend.position = "none")
+```
+
+**Analyst 1 vs Analyst 2**
+
+Day 1
+
+```{r, eval=TRUE}
+Analyst1_Analyst2_contact1_stats<-blandr.output.text(Analyst1_day1_contact_1[[4]],Analyst2_day1_contact_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day1_contact_1[[4]],Analyst2_day1_contact_1[[4]])
+blandr.plot.normality(Analyst1_Analyst2_contact_1)
+
+```
+
+Day 2
+
+```{r, eval=TRUE}
+Analyst1_Analyst2_contact2_stats<-blandr.output.text(Analyst1_day2_contact_1[[4]],Analyst2_day2_contact_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day2_contact_1[[4]],Analyst2_day2_contact_1[[4]])
+blandr.plot.normality(Analyst1_Analyst2_contact_2)
+
+```
+
+Day 3
+
+```{r, eval=TRUE}
+Analyst1_Analyst2_contact3_stats<-blandr.output.text(Analyst1_day3_contact_1[[4]],Analyst2_day3_contact_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day3_contact_1[[4]],Analyst2_day3_contact_1[[4]])
+blandr.plot.normality(Analyst1_Analyst2_contact_3)
+
+```
+
+**Analyst 1 vs Biospot**
+
+Day 1
+
+```{r, eval=TRUE}
+Analyst1_Biospot_contact2_stats<-blandr.output.text(Analyst1_day1_contact_1[[4]],Biospot_day1_contact_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day1_contact_1[[4]],Biospot_day1_contact_1[[4]])
+blandr.plot.normality(Analyst1_Biospot_contact_1)
+
+```
+
+Day 2
+
+```{r, eval=TRUE}
+Analyst1_Biospot_contact2_stats<-blandr.output.text(Analyst1_day2_contact_1[[4]],Biospot_day2_contact_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day2_contact_1[[4]],Biospot_day2_contact_1[[4]])
+blandr.plot.normality(Analyst1_Biospot_contact_2)
+
+```
+
+Day 3
+
+```{r, eval=TRUE}
+Analyst1_Biospot_contact3_stats<-blandr.output.text(Analyst1_day3_contact_1[[4]],Biospot_day3_contact_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day3_contact_1[[4]],Biospot_day3_contact_1[[4]])
+blandr.plot.normality(Analyst1_Biospot_contact_3)
+
+```
+
+**Analyst 2 vs Biospot**
+
+Day 1
+
+```{r, eval=TRUE}
+Analyst2_Biospot_contact1_stats<-blandr.output.text(Analyst2_day1_contact_1[[4]],Biospot_day1_contact_1[[4]],sig.level=0.95)
+blandr.draw(Analyst2_day1_contact_1[[4]],Biospot_day1_contact_1[[4]])
+blandr.plot.normality(Analyst2_Biospot_contact_1)
+
+```
+
+Day 2
+
+```{r, eval=TRUE}
+Analyst2_Biospot_contact2_stats<-blandr.output.text(Analyst2_day2_contact_1[[4]],Biospot_day2_contact_1[[4]],sig.level=0.95)
+blandr.draw(Analyst2_day2_contact_1[[4]],Biospot_day2_contact_1[[4]])
+blandr.plot.normality(Analyst2_Biospot_contact_2)
+
+```
+
+Day 3
+
+```{r, eval=TRUE}
+Analyst2_Biospot_contact3_stats<-blandr.output.text(Analyst2_day3_contact_1[[4]],Biospot_day3_contact_1[[4]],sig.level=0.95)
+blandr.draw(Analyst1_day2_contact_1[[4]],Biospot_day3_contact_1[[4]])
+blandr.plot.normality(Analyst2_Biospot_contact_3)
+
+```

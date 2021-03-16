@@ -1,4 +1,5 @@
-# Introduction {#intro}
+# Introduction 
+
 
 **1. INTRODUCTION** 
 
@@ -17,7 +18,6 @@ During the time of these studies, environmental monitoring (EM) settle plates fr
 **3. AIMS AND OBJECTIVES**
 
 After the period of collecting data from the plates, the data will be reviewed. The aim is to evaluate if automated plate reading demonstrates a higher level of accuracy than manual plate reading. 
-
 
 
 **4. RESULTS AND DISCUSSION**

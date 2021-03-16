@@ -1,7 +1,5 @@
-# Applications
+# Experiment 3
 
-Some _significant_ applications are demonstrated in this chapter.
+## Procedure
 
-## Example one
-
-## Example two
+This arm of the study is focusing on the affect labels have on the plate reader. Staphylococcus epidermidis is the organism to be used and the results from Experiments 1&2 will determine at what inoculum levels. Coloured labels and white labels will be compared versus no labels. 

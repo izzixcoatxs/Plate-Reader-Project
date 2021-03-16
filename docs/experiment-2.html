@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Experiment 2 | Plate Reader Analysis</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Experiment 2 | Plate Reader Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Experiment 2 | Plate Reader Analysis" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Isabelle Coates" />
+
+
+<meta name="date" content="2021-03-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="experiment-1.html"/>
+<link rel="next" href="experiment-3.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="experiment-1.html"><a href="experiment-1.html"><i class="fa fa-check"></i><b>2</b> Experiment 1</a><ul>
+<li class="chapter" data-level="2.1" data-path="experiment-1.html"><a href="experiment-1.html#procedure"><i class="fa fa-check"></i><b>2.1</b> Procedure</a></li>
+<li class="chapter" data-level="2.2" data-path="experiment-1.html"><a href="experiment-1.html#staphylococcus-aureus-settle-plates"><i class="fa fa-check"></i><b>2.2</b> Staphylococcus aureus Settle Plates:</a></li>
+<li class="chapter" data-level="2.3" data-path="experiment-1.html"><a href="experiment-1.html#aspergillus-brasiliensis-settle-plates"><i class="fa fa-check"></i><b>2.3</b> Aspergillus brasiliensis Settle plates</a></li>
+<li class="chapter" data-level="2.4" data-path="experiment-1.html"><a href="experiment-1.html#pseudomonas-aeruginosa-settle-plates"><i class="fa fa-check"></i><b>2.4</b> Pseudomonas aeruginosa Settle plates</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="experiment-2.html"><a href="experiment-2.html"><i class="fa fa-check"></i><b>3</b> Experiment 2</a><ul>
+<li class="chapter" data-level="3.1" data-path="experiment-2.html"><a href="experiment-2.html#procedure-1"><i class="fa fa-check"></i><b>3.1</b> Procedure</a></li>
+<li class="chapter" data-level="3.2" data-path="experiment-2.html"><a href="experiment-2.html#settle-plates"><i class="fa fa-check"></i><b>3.2</b> Settle Plates</a></li>
+<li class="chapter" data-level="3.3" data-path="experiment-2.html"><a href="experiment-2.html#contact-plates"><i class="fa fa-check"></i><b>3.3</b> Contact Plates</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="experiment-3.html"><a href="experiment-3.html"><i class="fa fa-check"></i><b>4</b> Experiment 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="experiment-3.html"><a href="experiment-3.html#procedure-2"><i class="fa fa-check"></i><b>4.1</b> Procedure</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="experiment-4.html"><a href="experiment-4.html"><i class="fa fa-check"></i><b>5</b> Experiment 4</a><ul>
+<li class="chapter" data-level="5.1" data-path="experiment-4.html"><a href="experiment-4.html#procedure-3"><i class="fa fa-check"></i><b>5.1</b> Procedure</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i><b>6</b> Conclusions</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Plate Reader Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="experiment-2" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Experiment 2</h1>
+<div id="procedure-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Procedure</h2>
+<p>This arm of the study involves setting down 50 contact plates and 50 settle plates in different lab locations. Performed on three days giving a total of 300 plates. This study will give a representative set of EM plates containing environmental isolates.</p>
+<p>The contact plates and settle plates will be incubated at 30-35°C for 5 days.</p>
+<p>Once the incubation period is complete, the plates will be read by two technicians - without marking with a pen and by both plate readers.</p>
+</div>
+<div id="settle-plates" class="section level2">
+<h2><span class="header-section-number">3.2</span> Settle Plates</h2>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+<p><strong>Analyst 1 vs Analyst 2</strong></p>
+<p>Day 1</p>
+<pre><code>## Number of comparisons:  49 
+## Maximum value for average measures:  84 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  4 
+## Minimum value for difference in measures:  -1 
+## 
+## Bias:  1.244898 
+## Standard deviation of bias:  1.25051 
+## 
+## Standard error of bias:  0.1786443 
+## Standard error for limits of agreement:  0.3073899 
+## 
+## Bias:  1.244898 
+## Bias- upper 95% CI:  1.604086 
+## Bias- lower 95% CI:  0.8857095 
+## 
+## Upper limit of agreement:  3.695898 
+## Upper LOA- upper 95% CI:  4.313947 
+## Upper LOA- lower 95% CI:  3.077849 
+## 
+## Lower limit of agreement:  -1.206102 
+## Lower LOA- upper 95% CI:  -0.588053 
+## Lower LOA- lower 95% CI:  -1.824151 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  Inf 
+## Point estimate of bias as proportion of highest average 1.482021 
+## Spread of data between lower and upper LoAs:  4.902 
+## Bias as proportion of LoA spread:  25.39572 
+## 
+## Bias: 
+##  1.244898  ( 0.8857095  to  1.604086 ) 
+## ULoA: 
+##  3.695898  ( 3.077849  to  4.313947 ) 
+## LLoA: 
+##  -1.206102  ( -1.824151  to  -0.588053 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-104-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-104-2.png" width="672" /></p>
+<p>Day 2</p>
+<pre><code>## Number of comparisons:  50 
+## Maximum value for average measures:  82.5 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  23 
+## Minimum value for difference in measures:  -3 
+## 
+## Bias:  2.78 
+## Standard deviation of bias:  4.647975 
+## 
+## Standard error of bias:  0.657323 
+## Standard error for limits of agreement:  1.130887 
+## 
+## Bias:  2.78 
+## Bias- upper 95% CI:  4.10094 
+## Bias- lower 95% CI:  1.45906 
+## 
+## Upper limit of agreement:  11.89003 
+## Upper LOA- upper 95% CI:  14.16263 
+## Upper LOA- lower 95% CI:  9.617428 
+## 
+## Lower limit of agreement:  -6.330031 
+## Lower LOA- upper 95% CI:  -4.057428 
+## Lower LOA- lower 95% CI:  -8.602635 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  Inf 
+## Point estimate of bias as proportion of highest average 3.369697 
+## Spread of data between lower and upper LoAs:  18.22006 
+## Bias as proportion of LoA spread:  15.25791 
+## 
+## Bias: 
+##  2.78  ( 1.45906  to  4.10094 ) 
+## ULoA: 
+##  11.89003  ( 9.617428  to  14.16263 ) 
+## LLoA: 
+##  -6.330031  ( -8.602635  to  -4.057428 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-105-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-105-2.png" width="672" /></p>
+<p>Day 3</p>
+<pre><code>## Number of comparisons:  50 
+## Maximum value for average measures:  10 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  4 
+## Minimum value for difference in measures:  -1 
+## 
+## Bias:  0.08 
+## Standard deviation of bias:  0.7239348 
+## 
+## Standard error of bias:  0.1023798 
+## Standard error for limits of agreement:  0.1761388 
+## 
+## Bias:  0.08 
+## Bias- upper 95% CI:  0.28574 
+## Bias- lower 95% CI:  -0.12574 
+## 
+## Upper limit of agreement:  1.498912 
+## Upper LOA- upper 95% CI:  1.852876 
+## Upper LOA- lower 95% CI:  1.144948 
+## 
+## Lower limit of agreement:  -1.338912 
+## Lower LOA- upper 95% CI:  -0.9849481 
+## Lower LOA- lower 95% CI:  -1.692876 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  Inf 
+## Point estimate of bias as proportion of highest average 0.8 
+## Spread of data between lower and upper LoAs:  2.837825 
+## Bias as proportion of LoA spread:  2.819061 
+## 
+## Bias: 
+##  0.08  ( -0.12574  to  0.28574 ) 
+## ULoA: 
+##  1.498912  ( 1.144948  to  1.852876 ) 
+## LLoA: 
+##  -1.338912  ( -1.692876  to  -0.9849481 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-106-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-106-2.png" width="672" /></p>
+<p><strong>Analyst 1 vs Biospot</strong></p>
+<p>Day 1</p>
+<pre><code>## Number of comparisons:  49 
+## Maximum value for average measures:  73 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  50 
+## Minimum value for difference in measures:  -13 
+## 
+## Bias:  9.979592 
+## Standard deviation of bias:  11.77301 
+## 
+## Standard error of bias:  1.681858 
+## Standard error for limits of agreement:  2.893943 
+## 
+## Bias:  9.979592 
+## Bias- upper 95% CI:  13.36119 
+## Bias- lower 95% CI:  6.597989 
+## 
+## Upper limit of agreement:  33.05469 
+## Upper LOA- upper 95% CI:  38.87335 
+## Upper LOA- lower 95% CI:  27.23603 
+## 
+## Lower limit of agreement:  -13.09551 
+## Lower LOA- upper 95% CI:  -7.276844 
+## Lower LOA- lower 95% CI:  -18.91417 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  Inf 
+## Point estimate of bias as proportion of highest average 13.67067 
+## Spread of data between lower and upper LoAs:  46.1502 
+## Bias as proportion of LoA spread:  21.62416 
+## 
+## Bias: 
+##  9.979592  ( 6.597989  to  13.36119 ) 
+## ULoA: 
+##  33.05469  ( 27.23603  to  38.87335 ) 
+## LLoA: 
+##  -13.09551  ( -18.91417  to  -7.276844 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-107-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-107-2.png" width="672" /></p>
+<p>Day 2</p>
+<pre><code>## Number of comparisons:  50 
+## Maximum value for average measures:  71.5 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  45 
+## Minimum value for difference in measures:  -128 
+## 
+## Bias:  5.46 
+## Standard deviation of bias:  23.13863 
+## 
+## Standard error of bias:  3.272297 
+## Standard error for limits of agreement:  5.629804 
+## 
+## Bias:  5.46 
+## Bias- upper 95% CI:  12.03593 
+## Bias- lower 95% CI:  -1.115927 
+## 
+## Upper limit of agreement:  50.81172 
+## Upper LOA- upper 95% CI:  62.12523 
+## Upper LOA- lower 95% CI:  39.49821 
+## 
+## Lower limit of agreement:  -39.89172 
+## Lower LOA- upper 95% CI:  -28.57821 
+## Lower LOA- lower 95% CI:  -51.20523 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  Inf 
+## Point estimate of bias as proportion of highest average 7.636364 
+## Spread of data between lower and upper LoAs:  90.70344 
+## Bias as proportion of LoA spread:  6.019617 
+## 
+## Bias: 
+##  5.46  ( -1.115927  to  12.03593 ) 
+## ULoA: 
+##  50.81172  ( 39.49821  to  62.12523 ) 
+## LLoA: 
+##  -39.89172  ( -51.20523  to  -28.57821 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-108-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-108-2.png" width="672" /></p>
+<p>Day 3</p>
+<pre><code>## Number of comparisons:  50 
+## Maximum value for average measures:  8.5 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  8 
+## Minimum value for difference in measures:  -8 
+## 
+## Bias:  0.96 
+## Standard deviation of bias:  2.457475 
+## 
+## Standard error of bias:  0.3475395 
+## Standard error for limits of agreement:  0.5979222 
+## 
+## Bias:  0.96 
+## Bias- upper 95% CI:  1.658407 
+## Bias- lower 95% CI:  0.2615933 
+## 
+## Upper limit of agreement:  5.776651 
+## Upper LOA- upper 95% CI:  6.978221 
+## Upper LOA- lower 95% CI:  4.575081 
+## 
+## Lower limit of agreement:  -3.856651 
+## Lower LOA- upper 95% CI:  -2.655081 
+## Lower LOA- lower 95% CI:  -5.058221 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  Inf 
+## Point estimate of bias as proportion of highest average 11.29412 
+## Spread of data between lower and upper LoAs:  9.633302 
+## Bias as proportion of LoA spread:  9.96543 
+## 
+## Bias: 
+##  0.96  ( 0.2615933  to  1.658407 ) 
+## ULoA: 
+##  5.776651  ( 4.575081  to  6.978221 ) 
+## LLoA: 
+##  -3.856651  ( -5.058221  to  -2.655081 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-109-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-109-2.png" width="672" /></p>
+<p><strong>Analyst 2 vs Biospot</strong></p>
+<p>Day 1</p>
+<pre><code>## Number of comparisons:  47 
+## Maximum value for average measures:  422.5 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  15 
+## Minimum value for difference in measures:  -783 
+## 
+## Bias:  -48.95745 
+## Standard deviation of bias:  139.4763 
+## 
+## Standard error of bias:  20.34472 
+## Standard error for limits of agreement:  35.01706 
+## 
+## Bias:  -48.95745 
+## Bias- upper 95% CI:  -8.005658 
+## Bias- lower 95% CI:  -89.90924 
+## 
+## Upper limit of agreement:  224.4162 
+## Upper LOA- upper 95% CI:  294.9019 
+## Upper LOA- lower 95% CI:  153.9305 
+## 
+## Lower limit of agreement:  -322.3311 
+## Lower LOA- upper 95% CI:  -251.8454 
+## Lower LOA- lower 95% CI:  -392.8168 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  -Inf 
+## Point estimate of bias as proportion of highest average -11.58756 
+## Spread of data between lower and upper LoAs:  546.7473 
+## Bias as proportion of LoA spread:  -8.95431 
+## 
+## Bias: 
+##  -48.95745  ( -89.90924  to  -8.005658 ) 
+## ULoA: 
+##  224.4162  ( 153.9305  to  294.9019 ) 
+## LLoA: 
+##  -322.3311  ( -392.8168  to  -251.8454 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-110-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-110-2.png" width="672" /></p>
+<p>Day 2</p>
+<pre><code>## Number of comparisons:  50 
+## Maximum value for average measures:  66 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  25 
+## Minimum value for difference in measures:  -128 
+## 
+## Bias:  2.68 
+## Standard deviation of bias:  21.65164 
+## 
+## Standard error of bias:  3.062004 
+## Standard error for limits of agreement:  5.268007 
+## 
+## Bias:  2.68 
+## Bias- upper 95% CI:  8.833328 
+## Bias- lower 95% CI:  -3.473328 
+## 
+## Upper limit of agreement:  45.11721 
+## Upper LOA- upper 95% CI:  55.70367 
+## Upper LOA- lower 95% CI:  34.53076 
+## 
+## Lower limit of agreement:  -39.75721 
+## Lower LOA- upper 95% CI:  -29.17076 
+## Lower LOA- lower 95% CI:  -50.34367 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  Inf 
+## Point estimate of bias as proportion of highest average 4.060606 
+## Spread of data between lower and upper LoAs:  84.87442 
+## Bias as proportion of LoA spread:  3.157606 
+## 
+## Bias: 
+##  2.68  ( -3.473328  to  8.833328 ) 
+## ULoA: 
+##  45.11721  ( 34.53076  to  55.70367 ) 
+## LLoA: 
+##  -39.75721  ( -50.34367  to  -29.17076 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-111-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-111-2.png" width="672" /></p>
+<p>Day 3</p>
+<pre><code>## Number of comparisons:  50 
+## Maximum value for average measures:  8.5 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  9 
+## Minimum value for difference in measures:  -8 
+## 
+## Bias:  0.88 
+## Standard deviation of bias:  2.273539 
+## 
+## Standard error of bias:  0.321527 
+## Standard error for limits of agreement:  0.5531692 
+## 
+## Bias:  0.88 
+## Bias- upper 95% CI:  1.526133 
+## Bias- lower 95% CI:  0.2338674 
+## 
+## Upper limit of agreement:  5.336136 
+## Upper LOA- upper 95% CI:  6.447772 
+## Upper LOA- lower 95% CI:  4.224501 
+## 
+## Lower limit of agreement:  -3.576136 
+## Lower LOA- upper 95% CI:  -2.464501 
+## Lower LOA- lower 95% CI:  -4.687772 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  Inf 
+## Point estimate of bias as proportion of highest average 10.35294 
+## Spread of data between lower and upper LoAs:  8.912273 
+## Bias as proportion of LoA spread:  9.874024 
+## 
+## Bias: 
+##  0.88  ( 0.2338674  to  1.526133 ) 
+## ULoA: 
+##  5.336136  ( 4.224501  to  6.447772 ) 
+## LLoA: 
+##  -3.576136  ( -4.687772  to  -2.464501 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-112-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-112-2.png" width="672" /></p>
+</div>
+<div id="contact-plates" class="section level2">
+<h2><span class="header-section-number">3.3</span> Contact Plates</h2>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
+<p><strong>Analyst 1 vs Analyst 2</strong></p>
+<p>Day 1</p>
+<pre><code>## Number of comparisons:  48 
+## Maximum value for average measures:  40.5 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  10 
+## Minimum value for difference in measures:  -11 
+## 
+## Bias:  -0.5833333 
+## Standard deviation of bias:  3.240917 
+## 
+## Standard error of bias:  0.4677861 
+## Standard error for limits of agreement:  0.8050267 
+## 
+## Bias:  -0.5833333 
+## Bias- upper 95% CI:  0.357731 
+## Bias- lower 95% CI:  -1.524398 
+## 
+## Upper limit of agreement:  5.768865 
+## Upper LOA- upper 95% CI:  7.38837 
+## Upper LOA- lower 95% CI:  4.14936 
+## 
+## Lower limit of agreement:  -6.935532 
+## Lower LOA- upper 95% CI:  -5.316027 
+## Lower LOA- lower 95% CI:  -8.555036 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  -Inf 
+## Point estimate of bias as proportion of highest average -1.440329 
+## Spread of data between lower and upper LoAs:  12.7044 
+## Bias as proportion of LoA spread:  -4.591586 
+## 
+## Bias: 
+##  -0.5833333  ( -1.524398  to  0.357731 ) 
+## ULoA: 
+##  5.768865  ( 4.14936  to  7.38837 ) 
+## LLoA: 
+##  -6.935532  ( -8.555036  to  -5.316027 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-114-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-114-2.png" width="672" /></p>
+<p>Day 2</p>
+<pre><code>## Number of comparisons:  45 
+## Maximum value for average measures:  75.5 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  6 
+## Minimum value for difference in measures:  -3 
+## 
+## Bias:  0 
+## Standard deviation of bias:  1.331438 
+## 
+## Standard error of bias:  0.1984791 
+## Standard error for limits of agreement:  0.341729 
+## 
+## Bias:  0 
+## Bias- upper 95% CI:  0.4000083 
+## Bias- lower 95% CI:  -0.4000083 
+## 
+## Upper limit of agreement:  2.609619 
+## Upper LOA- upper 95% CI:  3.298328 
+## Upper LOA- lower 95% CI:  1.920909 
+## 
+## Lower limit of agreement:  -2.609619 
+## Lower LOA- upper 95% CI:  -1.920909 
+## Lower LOA- lower 95% CI:  -3.298328 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  NaN 
+## Point estimate of bias as proportion of highest average 0 
+## Spread of data between lower and upper LoAs:  5.219237 
+## Bias as proportion of LoA spread:  0 
+## 
+## Bias: 
+##  0  ( -0.4000083  to  0.4000083 ) 
+## ULoA: 
+##  2.609619  ( 1.920909  to  3.298328 ) 
+## LLoA: 
+##  -2.609619  ( -3.298328  to  -1.920909 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-115-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-115-2.png" width="672" /></p>
+<p>Day 3</p>
+<pre><code>## Number of comparisons:  50 
+## Maximum value for average measures:  98.5 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  10 
+## Minimum value for difference in measures:  -40 
+## 
+## Bias:  -1.28 
+## Standard deviation of bias:  6.446135 
+## 
+## Standard error of bias:  0.9116211 
+## Standard error for limits of agreement:  1.568393 
+## 
+## Bias:  -1.28 
+## Bias- upper 95% CI:  0.5519712 
+## Bias- lower 95% CI:  -3.111971 
+## 
+## Upper limit of agreement:  11.35442 
+## Upper LOA- upper 95% CI:  14.50623 
+## Upper LOA- lower 95% CI:  8.20262 
+## 
+## Lower limit of agreement:  -13.91442 
+## Lower LOA- upper 95% CI:  -10.76262 
+## Lower LOA- lower 95% CI:  -17.06623 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  -Inf 
+## Point estimate of bias as proportion of highest average -1.299492 
+## Spread of data between lower and upper LoAs:  25.26885 
+## Bias as proportion of LoA spread:  -5.065526 
+## 
+## Bias: 
+##  -1.28  ( -3.111971  to  0.5519712 ) 
+## ULoA: 
+##  11.35442  ( 8.20262  to  14.50623 ) 
+## LLoA: 
+##  -13.91442  ( -17.06623  to  -10.76262 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-116-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-116-2.png" width="672" /></p>
+<p><strong>Analyst 1 vs Biospot</strong></p>
+<p>Day 1</p>
+<pre><code>## Number of comparisons:  47 
+## Maximum value for average measures:  427 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  17 
+## Minimum value for difference in measures:  -774 
+## 
+## Bias:  -49.76596 
+## Standard deviation of bias:  139.4712 
+## 
+## Standard error of bias:  20.34397 
+## Standard error for limits of agreement:  35.01578 
+## 
+## Bias:  -49.76596 
+## Bias- upper 95% CI:  -8.815667 
+## Bias- lower 95% CI:  -90.71625 
+## 
+## Upper limit of agreement:  223.5977 
+## Upper LOA- upper 95% CI:  294.0808 
+## Upper LOA- lower 95% CI:  153.1146 
+## 
+## Lower limit of agreement:  -323.1296 
+## Lower LOA- upper 95% CI:  -252.6465 
+## Lower LOA- lower 95% CI:  -393.6127 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  -Inf 
+## Point estimate of bias as proportion of highest average -11.65479 
+## Spread of data between lower and upper LoAs:  546.7273 
+## Bias as proportion of LoA spread:  -9.10252 
+## 
+## Bias: 
+##  -49.76596  ( -90.71625  to  -8.815667 ) 
+## ULoA: 
+##  223.5977  ( 153.1146  to  294.0808 ) 
+## LLoA: 
+##  -323.1296  ( -393.6127  to  -252.6465 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-117-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-117-2.png" width="672" /></p>
+<p>Day 2</p>
+<pre><code>## Number of comparisons:  44 
+## Maximum value for average measures:  328 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  6 
+## Minimum value for difference in measures:  -624 
+## 
+## Bias:  -36.54545 
+## Standard deviation of bias:  122.5839 
+## 
+## Standard error of bias:  18.48022 
+## Standard error for limits of agreement:  31.82354 
+## 
+## Bias:  -36.54545 
+## Bias- upper 95% CI:  0.7234566 
+## Bias- lower 95% CI:  -73.81437 
+## 
+## Upper limit of agreement:  203.719 
+## Upper LOA- upper 95% CI:  267.8973 
+## Upper LOA- lower 95% CI:  139.5407 
+## 
+## Lower limit of agreement:  -276.8099 
+## Lower LOA- upper 95% CI:  -212.6316 
+## Lower LOA- lower 95% CI:  -340.9882 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  -Inf 
+## Point estimate of bias as proportion of highest average -11.14191 
+## Spread of data between lower and upper LoAs:  480.5289 
+## Bias as proportion of LoA spread:  -7.605257 
+## 
+## Bias: 
+##  -36.54545  ( -73.81437  to  0.7234566 ) 
+## ULoA: 
+##  203.719  ( 139.5407  to  267.8973 ) 
+## LLoA: 
+##  -276.8099  ( -340.9882  to  -212.6316 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-118-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-118-2.png" width="672" /></p>
+<p>Day 3</p>
+<pre><code>## Number of comparisons:  49 
+## Maximum value for average measures:  474.5 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  2 
+## Minimum value for difference in measures:  -895 
+## 
+## Bias:  -91.95918 
+## Standard deviation of bias:  199.2057 
+## 
+## Standard error of bias:  28.45796 
+## Standard error for limits of agreement:  48.96708 
+## 
+## Bias:  -91.95918 
+## Bias- upper 95% CI:  -34.74062 
+## Bias- lower 95% CI:  -149.1777 
+## 
+## Upper limit of agreement:  298.484 
+## Upper LOA- upper 95% CI:  396.9389 
+## Upper LOA- lower 95% CI:  200.0291 
+## 
+## Lower limit of agreement:  -482.4024 
+## Lower LOA- upper 95% CI:  -383.9475 
+## Lower LOA- lower 95% CI:  -580.8573 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  -Inf 
+## Point estimate of bias as proportion of highest average -19.38023 
+## Spread of data between lower and upper LoAs:  780.8864 
+## Bias as proportion of LoA spread:  -11.77626 
+## 
+## Bias: 
+##  -91.95918  ( -149.1777  to  -34.74062 ) 
+## ULoA: 
+##  298.484  ( 200.0291  to  396.9389 ) 
+## LLoA: 
+##  -482.4024  ( -580.8573  to  -383.9475 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-119-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-119-2.png" width="672" /></p>
+<p><strong>Analyst 2 vs Biospot</strong></p>
+<p>Day 1</p>
+<pre><code>## Number of comparisons:  47 
+## Maximum value for average measures:  422.5 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  15 
+## Minimum value for difference in measures:  -783 
+## 
+## Bias:  -48.95745 
+## Standard deviation of bias:  139.4763 
+## 
+## Standard error of bias:  20.34472 
+## Standard error for limits of agreement:  35.01706 
+## 
+## Bias:  -48.95745 
+## Bias- upper 95% CI:  -8.005658 
+## Bias- lower 95% CI:  -89.90924 
+## 
+## Upper limit of agreement:  224.4162 
+## Upper LOA- upper 95% CI:  294.9019 
+## Upper LOA- lower 95% CI:  153.9305 
+## 
+## Lower limit of agreement:  -322.3311 
+## Lower LOA- upper 95% CI:  -251.8454 
+## Lower LOA- lower 95% CI:  -392.8168 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  -Inf 
+## Point estimate of bias as proportion of highest average -11.58756 
+## Spread of data between lower and upper LoAs:  546.7473 
+## Bias as proportion of LoA spread:  -8.95431 
+## 
+## Bias: 
+##  -48.95745  ( -89.90924  to  -8.005658 ) 
+## ULoA: 
+##  224.4162  ( 153.9305  to  294.9019 ) 
+## LLoA: 
+##  -322.3311  ( -392.8168  to  -251.8454 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-120-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-120-2.png" width="672" /></p>
+<p>Day 2</p>
+<pre><code>## Number of comparisons:  45 
+## Maximum value for average measures:  326.5 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  5 
+## Minimum value for difference in measures:  -627 
+## 
+## Bias:  -46.15556 
+## Standard deviation of bias:  137.9448 
+## 
+## Standard error of bias:  20.5636 
+## Standard error for limits of agreement:  35.40513 
+## 
+## Bias:  -46.15556 
+## Bias- upper 95% CI:  -4.712347 
+## Bias- lower 95% CI:  -87.59876 
+## 
+## Upper limit of agreement:  224.2163 
+## Upper LOA- upper 95% CI:  295.5706 
+## Upper LOA- lower 95% CI:  152.8619 
+## 
+## Lower limit of agreement:  -316.5274 
+## Lower LOA- upper 95% CI:  -245.173 
+## Lower LOA- lower 95% CI:  -387.8817 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  -Inf 
+## Point estimate of bias as proportion of highest average -14.13646 
+## Spread of data between lower and upper LoAs:  540.7437 
+## Bias as proportion of LoA spread:  -8.53557 
+## 
+## Bias: 
+##  -46.15556  ( -87.59876  to  -4.712347 ) 
+## ULoA: 
+##  224.2163  ( 152.8619  to  295.5706 ) 
+## LLoA: 
+##  -316.5274  ( -387.8817  to  -245.173 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-121-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-121-2.png" width="672" /></p>
+<p>Day 3</p>
+<pre><code>## Number of comparisons:  49 
+## Maximum value for average measures:  476.5 
+## Minimum value for average measures:  0 
+## Maximum value for difference in measures:  2 
+## Minimum value for difference in measures:  -891 
+## 
+## Bias:  -90.69388 
+## Standard deviation of bias:  197.3059 
+## 
+## Standard error of bias:  28.18656 
+## Standard error for limits of agreement:  48.5001 
+## 
+## Bias:  -90.69388 
+## Bias- upper 95% CI:  -34.02099 
+## Bias- lower 95% CI:  -147.3668 
+## 
+## Upper limit of agreement:  296.0258 
+## Upper LOA- upper 95% CI:  393.5417 
+## Upper LOA- lower 95% CI:  198.5098 
+## 
+## Lower limit of agreement:  -477.4135 
+## Lower LOA- upper 95% CI:  -379.8975 
+## Lower LOA- lower 95% CI:  -574.9295 
+## 
+## Derived measures:  
+## Mean of differences/means:  NaN 
+## Point estimate of bias as proportion of lowest average:  -Inf 
+## Point estimate of bias as proportion of highest average -19.03334 
+## Spread of data between lower and upper LoAs:  773.4393 
+## Bias as proportion of LoA spread:  -11.72605 
+## 
+## Bias: 
+##  -90.69388  ( -147.3668  to  -34.02099 ) 
+## ULoA: 
+##  296.0258  ( 198.5098  to  393.5417 ) 
+## LLoA: 
+##  -477.4135  ( -574.9295  to  -379.8975 )</code></pre>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-122-1.png" width="672" /><img src="bookdown-demo_files/figure-html/unnamed-chunk-122-2.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="experiment-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="experiment-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-method.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

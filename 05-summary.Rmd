@@ -1,3 +1,31 @@
-# Final Words
+# Experiment 4
 
-We have finished a nice book.
+## Procedure
+
+This study will use Pseudomonas aeruginosa and another water borne isolate on R2A plates. 3 inoculum levels will be used; 10 plates per inoculum level for both species. The preparation of the plates is carried out over two days. 
+
+**Day 1: **
+
+*	Streak colony from culture plate onto agar slope  
+*	Incubate agar slope overnight 
+
+
+**Day 2: **
+
+*	Add glass beads to the inoculated agar slope
+*	Add 10ml saline to the inoculated slope  
+*	Invert the slope a few times 
+*	Vortex the slope for 1 minute 
+*	Dispense 0.1ml of stock solution in 9.9ml 0.9% saline = 105 
+*	Dispense 0.1ml of 105 dilution in 9.9ml of 0.9% saline = 103
+*	Dispense 2.0ml of 105 dilution in 8.0ml of 0.9% saline = 500cfu 
+*	Dispense 1.0ml of 103 dilution in 9.0ml of 0.9% saline = 102 
+*	Dispense 1.0ml of 500cfu in 9.0ml WFI = 50cfu 
+*	Dispense 1.0ml of 50cfu in 9.0ml of WFI = 5cfu 
+*	Dispense 0.1ml of 102 in 9.9ml of WFI = 1cfu
+
+Using the Oasis pump system, filter the 10mL of water through the filter and attach to an R2A media capsule. This will be performed 10 times for each inoculum level.  
+
+The R2A plates will be incubated at 30-35°C for 5 days. 
+
+Once the incubation period is complete, the plates will be read by two technicians - without marking with a pen and by both plate readers. 
